@@ -1,10 +1,12 @@
 "1. Sala"
 
 	"1. Cadastrar Sala"
-		"Informe número da sala"
+		"Informe número da sala" (uma vez)
+			>cria sala temporaria
 
-		"Adicionar fileiras com assentos"
-		while(!done){
+		>imprime sala
+
+		"Adicionar fileira(s)"
 			"Quantidade de fileiras:"
 			"Quantidade de assentos por fileira"
 
@@ -12,7 +14,15 @@
 				>for insere assentos
 
 			setCapacidade(getCapacidade + assentos*fileiras)
-		}
+
+		"Excluir fileira da sala"
+			>pede letra e exclui
+			>clear screen e reexibe sala
+
+		"Alterar número de assentos da fileira"
+			>pede letra e muda qtd
+
+		"Confirmar"
 
 	"2. Editar Sala"
 	 >mostra sala com todas as fileiras e assentos
