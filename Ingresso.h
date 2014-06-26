@@ -15,7 +15,7 @@ private:
 	Tipo tipo;
 
 public:
-	Ingresso(Sessao sessao, Assento assento);
+	Ingresso(Sessao &sessao, Assento &assento);
 
 	Horario getDtIngresso();
 	void setDtIngresso(Horario dtIngresso);

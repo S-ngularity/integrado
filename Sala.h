@@ -31,6 +31,15 @@ class Sala{
 		Estado getSituacao();
 		void setSituacao(Estado alteracao);
 
+		void addFileira(int qtdFileiras); // TO DO
+		void removeFileira(char fileira); // TO DO
+
+		void addAssentos(char fileira, int qtdeAssentos); // TO DO
+		void removeAssentos(char fileira, int qtdeRemover); // TO DO
+
+		void ocuparAssento(char fileira, int assento); // TO DO
+		void desocuparAssento(char fileira, int assento); // TO DO
+
 		// ???? Assento* getAssento(char idFileira, int idAssento);
 
 		//int getQtdeAssentosFileiras();

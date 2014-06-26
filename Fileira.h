@@ -9,8 +9,6 @@ class Fileira{
 //--------Atributos----------------
 	private:
 		char idFileira;
-		int qtdeAssentos;
-		int assentosDisponiveis;
 		ListaAssento assento;
 		int num;
 
@@ -23,10 +21,8 @@ class Fileira{
 	public:
 		bool verificaDisponibilidade();
 		Assento *getAssento(int id);
-		int getQtdeAssentosDisponiveis();
 		void setQtdeAssentos(int qtde);
 		char getIdFileira();
-		void desocupa();
 //--------Construtores e Desrutores-----------
 	public:
 		Fileira(char id, int qtdAssentosFileira);//definir parametros

@@ -49,16 +49,7 @@ Sala * Sessao::getSala(){
 	return sala;
 }
 
-Sessao::Sessao(string filme, Sala *sal, int dia, int mes, int ano, int hora, int min) : horario(hora,min,dia,mes,ano)
-{
-	if(sala->getSituacao() != disponivel)
-		throw "Sala indisponivel"
-
-	Sessao::filme = filme;
-	sala = sal;
-}
-
-Sessao::Sessao(string filme, Sala *sal, int hora, int min) : horario(hora, min)
+Sessao::Sessao(string filme, Sala *sal, Horario h) : horario(h)
 {
 	if(sala->getSituacao() != disponivel)
 		throw "Sala indisponivel"

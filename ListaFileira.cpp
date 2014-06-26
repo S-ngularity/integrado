@@ -18,18 +18,7 @@ Fileira *ListaFileira::busca(char id){
 
 	throw "Fileira nao encontrada";
 }
-bool ListaFileira::disponivel(){
-	No<Fileira>* temp = getCabeca();
 
-	while(temp != NULL)
-	{
-		if(temp->getElemto()->verificaDisponibilidade())
-			return true;
-		temp = temp->getProx();
-	}
-
-	return false;
-}
 int ListaFileira::qtdeFileiraDisponivel(){
 	No<Fileira>* temp = getCabeca();
 	int qtde = 0;

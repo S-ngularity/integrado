@@ -10,7 +10,8 @@ class Sessao{
 
 //---------Atributos----------------------------------
 	private:
-		Horario horario; //horario possui data também
+		Horario horarioInicio; //horario possui data também
+		Horario horarioFim;
 		bool encerrada;
 		int numVendido;
 		string filme;
@@ -23,9 +24,6 @@ class Sessao{
 
 		Horario getHorario(); //discutir implementacao
 		void setHorario(Horario novoHorario);
-
-		//Data getData();
-		//void setData(Data novaData); // precisa?
 
 		bool getDisponivel();
 
@@ -40,8 +38,7 @@ class Sessao{
 
 //----------Construtores e Destrutores--------------------------------
 	public:
-		Sessao(string filme, Sala *sal, int dia, int mes, int ano, int hora, int min);
-		Sessao(string filme, Sala *sal, int hora, int min); //Com data corrente no sistema
+		Sessao(string filme, Sala *sal, Horario h);
 };
 
 #endif

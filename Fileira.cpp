@@ -58,7 +58,5 @@ void Fileira::setQtdeAssentos(int qtde){
 
 	qtdeAssentos = qtde;
 }
-void Fileira::desocupa(){
-	assento.desocupaAssentos();
-}
+
 Fileira::~Fileira(){}

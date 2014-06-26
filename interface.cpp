@@ -72,7 +72,7 @@ void cadastrarSala(){
 	cout << "Informe a capacidade da sala " << endl;
 	cin >> capacSala;
 
-	cout << "Informe o numero de assentos em uma fileira " << endl;
+	cout << "Informe o numero de assentos em cada fileira " << endl;
 	cin >> numAssentosFileira;
 
 	cout << "Confirme se os dados inseridos estao corretos" << endl;

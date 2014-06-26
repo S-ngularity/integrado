@@ -1,6 +1,6 @@
 #include "Ingresso.h"
 
-Ingresso(Sessao sessao, Assento assento)
+Ingresso(Sessao &sessao, &Assento assento)
 {
 	Ingresso::sessao = &sessao;
 	Ingresso::assento = &assento;
