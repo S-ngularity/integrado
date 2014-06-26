@@ -1,0 +1,89 @@
+---Listas
+	Slide 38 da aula 10 diz que não se pode fazer Pilha<Formas>. Podemos fazer Lista<Ingresso/Assento/...>?
+
+---Sessao, Ingresso, Venda
+	Como identificar cada um desses? Adicionar códigos
+
+---Lugares que tem que ter apontador pra outra classe mas não pode alterá-la: como fazer?
+
+	-Ingresso -> Sessao -- só pode conhecer caso Venda::emitirIngresso() acesse o horário e sala por aqui; caso contrário, pra que serve a relaçao "relativo"?
+
+	-Ingresso -> Assento -- pra que conhece? Venda::emitirIngresso() / ou / Venda::addIngresso() muda disponibilidade de assento através de Ingresso ou Sessao>Sala ?
+
+	-Venda -> Sessao? (só setNumVendido()? talvez tambem atualize a disponibilidade de assento. mas não deve poder mudar os outros sets() de sessao)
+
+
+Sala
+	Como funciona getCapacidade?
+
+	Pra que serve assentosFileira/getQtdAssentosFileiras() e como funciona?
+
+	Como funciona construtor?
+
+	Como adicionar/deletar fileiras e assentos (boundary)?
+
+	Ver comentário em fileira quanto ao encapsulamento. Não podemos ter função que retorna ponteiro pra assento (a não ser que seja pra passar pra ingresso... temos que ver)
+
+Fileira
+	Não devemos ter funções que retornam ponteiros para um membro da lista (quebra encapsulamento). Tem que ter em Fileira uma função pra ocupar/desocupar um assento (e talvez getassento), e ela chama a função do endereço do ponteiro interno.
+
+	São necessários os atributos qtdAssentos, assentosDisponiveis e num?
+
+	Tirar função desocupa().
+	
+	Precisa da função getQtdAssentosDisponiveis()?
+
+	Precisa da função setQtdeAssentos(qtde) (poderia ser feito pelo boundary)?
+
+Assento
+	Correto
+
+ListaFileira
+	Fileira *busca(id) -- podemos ter uma função que retorna um ponteiro pro assento (encapsulamento)?
+
+	Precisamos do método disponivel()?
+
+	Precisamos dos métodos qtdeFileiraDisponivel() e qtdeAssentoDisponivel()? Pra que servem?
+
+	Quando usaremos setQtdeAssentos(qtde)? Qual a diferença dessa pra função de mesmo nome da classe Fileira?
+
+	Tirar função descoupaFileiras().
+
+	Deviamos ter um método de adicionar fileira? E um de adicionar assento na fileira?
+
+ListaAssento
+	Assento *busca(int id) -- pode retorna ponteiro (encapsulamento)?
+
+	Tirar função desocupaAssentos().
+
+	Quando usamos a função getQtdeAssentos() e qtdeDisponivel()?
+
+ListaSala
+	Sala* busca(num) -- podemos ter função que retorna ponteiro pra sala (encapsulamento)?
+
+Sessao
+	Precisamos de getData()/setData(novaData)? Não é suficiente a funcionalidade da classe derivada horário (ela inclui as funções da classe base, não)?
+
+	Pra que precisamos da função Sala* getSala()? Se realmente precisarmos, temos que implementar sem retornar ponteiro pra sala (quebra encapsulamento).
+
+	setNumVendido() adiciona um valor ou faz um set num = newNum? Se for o segundo caso, a usabilidade fica ruim além de precisarmos de um getNumVendido() ( setNumVendido(getNumVendido() + valor) ).
+
+Ingresso
+	Correto?
+
+ListaIngresso
+	Como identificar um ingresso?
+
+	Ingresso* busca(codigo) -- pode retornar ponteiro?
+
+Venda
+	
+
+
+
+
+Data
+	Correto
+
+Horario
+	Correto

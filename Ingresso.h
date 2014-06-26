@@ -1,23 +1,30 @@
 #ifndef INGRESSO_H
 #define INGRESSO_H
 
-class Ingresso {
+#include "Sessao.h"
 
-//----------Atributos-----------------------------
-	private:
-		//Date dataIngresso; - Ver como usar tipo date
-		float valor;
+typedef enum {inteiro = 0, meia} Tipo;
 
-//----------Metodos--------------------------------
-	public:
-		//Date getDtIngresso(); -- ver como usar tipo date
-		float getVAlor();
-		//void setDtIngresso(Date dtIngresso); -- ver como usar tipo date
-		void setValor(float valor);
+class Ingresso
+{
+private:
+	Sessao *sessao;
+	Assento *assento;
+	Horario dtIngresso;
+	double valor;
+	Tipo tipo;
 
-//----------Construtores e Destrutores-----------------------
-	public:
-		Ingresso(); // definir parametros depois
-		//adicionar destrutor, se necessário
+public:
+	Ingresso(Sessao sessao, Assento assento);
+
+	Horario getDtIngresso();
+	void setDtIngresso(Horario dtIngresso);
+
+	double getValor();
+	void setValor(double valor);
+
+	Tipo getTipo();
+	void setTipo(Tipo novoTipo);
 };
+
 #endif

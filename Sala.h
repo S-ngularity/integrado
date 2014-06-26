@@ -5,38 +5,40 @@
 #include <iostream>
 
 using namespace std;
-typedef enum { disponivel = 0, manuEquipamento, reforma, manuGeral, emSessao}Estado;
+typedef enum {disponivel = 0, manuEquipamento, reforma, manuGeral} Estado;
 
 class Sala{
 
 //--------Atributos-------------------
 	private:
+		Estado situacao;
 		int numSala;
 		int capacidade;
-		int capacidadeDisponivel;
 		ListaFileira fila;
-		int qtdeFileiras;
-		int assentosFileira;
-		Estado situacao;
-
+//int qtdeFileiras;
+//int assentosFileira;
 //--------Metodos----------------------
+	private:
+		Fileira *getFileira(char id);
+
 	public:
 		int getNumSala();
 		void setNumSala(int numSala);
-		int getCapacidadeDisponivel();
+
 		int getCapacidade();
 		void setCapacidade(int qtde);
-		int getQtdeAssentosFileiras();
-		void setQtdeAssentosFileiras(int qtde);
-		Fileira *getFileira(char id);
-		void desocupaSala();
-		string getSituacao();
+
+		Estado getSituacao();
 		void setSituacao(Estado alteracao);
 
-//--------Construtores e Destrutores-----------------
-	public:
+		// ???? Assento* getAssento(char idFileira, int idAssento);
 
+		//int getQtdeAssentosFileiras();
+		//void setQtdeAssentosFileiras(int qtde);
+
+//--------Construtores e Destrutores-----------------
 		Sala(int num, int capacidade, int assentosFileira);
 		~Sala();
 };
+
 #endif

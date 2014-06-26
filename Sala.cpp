@@ -4,23 +4,16 @@ int Sala::getNumSala(){
 
 	return numSala;
 }
-int Sala::getCapacidadeDisponivel(){
-	capacidadeDisponivel = fila.qtdeAssentoDisponivel();
 
-	return capacidadeDisponivel;
-}
 void Sala::setNumSala(int numSala){
 
 	Sala::numSala = numSala;
 }
-Fileira *Sala::getFileira(char id){
 
-
-	return fila.busca(id);
-}
 int Sala::getCapacidade(){
 	return capacidade;
 }
+
 void Sala::setCapacidade(int qtde){
 	int diferencafileira = qtde /assentosFileira + (qtde % assentosFileira > 0) - qtdeFileiras;
 	if(diferencafileira < 0)
@@ -43,7 +36,19 @@ void Sala::setCapacidade(int qtde){
 	qtdeFileiras = capacidade / assentosFileira + (capacidade % assentosFileira > 0);
 }
 
-int Sala::getQtdeAssentosFileiras(){
+string Sala::getSituacao(){
+	return situacao;
+}
+
+void Sala::setSituacao(Estado alteracao){
+	if(alteracao >= 0 && alteracao < 4)
+		situacao = alteracao;
+
+	else
+		throw "Situacao invalida";
+}
+
+/*int Sala::getQtdeAssentosFileiras(){
 	return assentosFileira;
 }
 void Sala::setQtdeAssentosFileiras( int qtde){
@@ -70,7 +75,14 @@ void Sala::setQtdeAssentosFileiras( int qtde){
 	fila.setQtdeAssentos(qtde);
 
 	assentosFileira = qtde;
+}*/
+
+Fileira *Sala::getFileira(char id){
+
+
+	return fila.busca(id);
 }
+
 Sala::Sala(int num, int capacidade, int assentosFileira):fila(), qtdeFileiras(capacidade / assentosFileira),numSala(num){
 	Sala::capacidade = capacidade;
 	Sala::assentosFileira = assentosFileira;
@@ -99,35 +111,4 @@ Sala::Sala(int num, int capacidade, int assentosFileira):fila(), qtdeFileiras(ca
 
 }
 
-void Sala::desocupaSala(){
-	fila.desocupaFileiras();
-}
-
-string Sala::getSituacao(){
-	switch(situacao)
-	{
-		case disponivel:
-		return "Disponivel";
-		break;
-
-		case manuEquipamento:
-		return "Manutencao de Equipamento";
-		break;
-
-		case reforma:
-		return "Em reforma";
-		break;
-
-		case manuGeral:
-		return "Manutencao Geral";
-		break;
-	}
-}
-void Sala::setSituacao(Estado alteracao){
-	if(alteracao >= 0 && alteracao < 5)
-		situacao = alteracao;
-
-	else
-		throw "Situacao invalida";
-}
 Sala::~Sala(){}
