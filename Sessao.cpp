@@ -1,5 +1,15 @@
 #include "Sessao.h"
 
+int getCodSessao()
+{
+	return codSessao;
+}
+
+void setCodSessao(int novoCod)
+{
+	codSessao = novoCod;
+}
+
 bool Sessao::getStatus(){
 	return encerrada;
 }
@@ -15,16 +25,6 @@ Horario Sessao::getHorario(){
 void Sessao::setHorario(Horario novoHorario){
 	horario = novoHorario;
 }
-
-/*Data Sessao::getData(){
-	return Data(horario.getDia(), horario.getMes(), horario.getAno());
-}
-
-void Sessao::setData(Data novaData){
-	horario.setDia(novaData.getDia());
-	horario.setMes(novaData.getMes());
-	horario.setAno(novaData.getAno()));
-}*/
 
 bool Sessao::getDisponivel(){
 	if(numVendido < sala->getCapacidade() && getStatus() == false) //verificar horario depois aqui também
@@ -43,10 +43,6 @@ string Sessao::getFilme(){
 
 void Sessao::setFilme(string nomeFilme){
 	Sessao::filme = filme;
-}
-
-Sala * Sessao::getSala(){
-	return sala;
 }
 
 Sessao::Sessao(string filme, Sala *sal, Horario h) : horario(h)

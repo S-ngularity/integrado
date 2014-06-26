@@ -7,12 +7,16 @@
 class Venda
 {
 private:
+	int codVenda;
 	Horario dtVenda;
 	float valorTotal;
 	ListaIngresso lista;
 
 public:
 	Venda(); //Definir parametros //se necessario, adicionar destrutor
+
+	int getCodVenda();
+	void setCodVenda(int novoCod);
 
 	float calcularValorTotal();
 	//void emitirIngresso(array ingresso); verificar como e que vai usar esse array parametro

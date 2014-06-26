@@ -11,9 +11,7 @@ class ListaAssento: public Lista<Assento>{
 
 	public:
 		Assento *busca(int id);
-		int qtdeDisponivel();
 		int getQtdeAssentos();
-		void desocupaAssentos();
 
 //-------------Construtor e Destrutor--------------------
 

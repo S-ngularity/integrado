@@ -5,6 +5,16 @@ Venda() //Definir parametros //se necessario, adicionar destrutor
 
 }
 
+int getCodVenda()
+{
+	return codVenda;
+}
+
+void setCodVenda(int novoCod)
+{
+	codVenda = novoCod;
+}
+
 float calcularValorTotal()
 {
 

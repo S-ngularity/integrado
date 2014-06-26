@@ -6,39 +6,35 @@ using std::string;
 #include "Sala.h"
 #include "Horario.h"
 
-class Sessao{
+class Sessao
+{
+private:
+	int codSessao;
+	Horario horarioInicio; //horario possui data também
+	Horario horarioFim;
+	bool encerrada;
+	int numVendido;
+	string filme;
+	Sala *sala;
 
-//---------Atributos----------------------------------
-	private:
-		Horario horarioInicio; //horario possui data também
-		Horario horarioFim;
-		bool encerrada;
-		int numVendido;
-		string filme;
-		Sala *sala;
+public:
+	Sessao(string filme, Sala *sal, Horario h);
 
-//-----------Metodos------------------------------------
-	public:
-		bool getStatus(); //retorna encerrada
-		void setStatus(bool encerrada); //altera encerrada
+	int getCodSessao();
+	void setCodSessao(int novoCod);
 
-		Horario getHorario(); //discutir implementacao
-		void setHorario(Horario novoHorario);
+	bool getStatus(); //retorna encerrada
+	void setStatus(bool encerrada); //altera encerrada
 
-		bool getDisponivel();
+	Horario getHorario(); //discutir implementacao
+	void setHorario(Horario novoHorario);
 
-		void setNumVendido(int numVendido);
+	bool getDisponivel();
 
-		string getFilme();
-		void setFilme(string nomeFilme);
+	void setNumVendido(int numVendido);
 
-		Sala * getSala();
-		//void alteraSalaSessao(Sala &sal);
-
-
-//----------Construtores e Destrutores--------------------------------
-	public:
-		Sessao(string filme, Sala *sal, Horario h);
+	string getFilme();
+	void setFilme(string nomeFilme);
 };
 
 #endif

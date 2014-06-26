@@ -6,6 +6,16 @@ Ingresso(Sessao &sessao, &Assento assento)
 	Ingresso::assento = &assento;
 }
 
+int getCodIngresso()
+{
+	return codIngresso;
+}
+
+void setCodIngresso(int novoCod)
+{
+	codIngresso = novoCod;
+}
+
 Horario Ingresso::getDtIngresso()
 {
 	return dtIngresso;

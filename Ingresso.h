@@ -8,14 +8,17 @@ typedef enum {inteiro = 0, meia} Tipo;
 class Ingresso
 {
 private:
-	Sessao *sessao;
-	Assento *assento;
+	int codIngresso;
 	Horario dtIngresso;
 	double valor;
 	Tipo tipo;
-
+	Sessao *sessao;
+	Assento *assento;
 public:
 	Ingresso(Sessao &sessao, Assento &assento);
+
+	int getCodIngresso();
+	void setCodIngresso(int novoCod);
 
 	Horario getDtIngresso();
 	void setDtIngresso(Horario dtIngresso);
