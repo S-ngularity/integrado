@@ -1,17 +1,17 @@
 #include "Ingresso.h"
 
-Ingresso(Sessao &sessao, &Assento assento)
+Ingresso::Ingresso(Sessao &sessao, Assento &assento)
 {
 	Ingresso::sessao = &sessao;
 	Ingresso::assento = &assento;
 }
 
-int getCodIngresso()
+int Ingresso::getCodIngresso()
 {
 	return codIngresso;
 }
 
-void setCodIngresso(int novoCod)
+void Ingresso::setCodIngresso(int novoCod)
 {
 	codIngresso = novoCod;
 }
@@ -36,12 +36,12 @@ void Ingresso::setValor(double valor)
 	Ingresso::valor = valor;
 }
 
-Tipo getTipo()
+Tipo Ingresso::getTipo()
 {
 	return tipo;
 }
 
-void setTipo(Tipo novoTipo)
+void Ingresso::setTipo(Tipo novoTipo)
 {
 	tipo = novoTipo;
 }

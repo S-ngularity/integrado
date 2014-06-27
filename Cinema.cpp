@@ -85,7 +85,8 @@ void Cinema::cadastrarSala(){
 	cout << "Informe a capacidade da sala: " << endl;
 	cin >> capacidade;
 
-	//Sala salaTemp(numSala, capacidade);
+	//Sala *salaTemp;
+	//salaTemp = new Sala(numSala, capacidade);
 
 	do
 	{
@@ -96,6 +97,7 @@ void Cinema::cadastrarSala(){
 		cout << "2. Excluir uma fileira" << endl;
 		cout << "3. Alterar numero de assentos de uma fileira" << endl;
 		cout << "4. Confirmar" << endl;
+		cout << "5. Cancelar" << endl;
 		cout << "Escolha uma opção: ";
 
 		cin >> opcao;
@@ -109,14 +111,14 @@ void Cinema::cadastrarSala(){
 				cout << "Quantidade de assentos por fileira: " << endl;
 				cin >> qtdeAssentosFileira;
 				
-				//salaTemp.addFileirasComAssentos(qtdeFileiras, qtdeAssentosFileira); // catch(bad_alloc) / catch(string s) do erro de exceder capacidade ?
+				//salaTemp->addFileirasComAssentos(qtdeFileiras, qtdeAssentosFileira); // catch(bad_alloc) / catch(string s) do erro de exceder capacidade ?
 			break;
 
 			case 2:
 				cout << "Informe fileira: " << endl;
 				cin >> idFileira;
 
-				//salaTemp.removeFileira(idFileira);
+				//salaTemp->removeFileira(idFileira);
 			break;
 
 			case 3:
@@ -126,16 +128,16 @@ void Cinema::cadastrarSala(){
 				cout << "Informe novo número de assentos: " << endl;
 				cin >> qtdeAssentosFileira;
 
-				//salaTemp.setQtdeAssentosNaFileira(idFileira, qtdeAssentosFileira); // catch(bad_alloc) / catch(string s) do erro de exceder capacidade ?
+				//salaTemp->setQtdeAssentosNaFileira(idFileira, qtdeAssentosFileira); // catch(bad_alloc) / catch(string s) do erro de exceder capacidade ?
 			break;
 
 			case 4:
-			//adiciona na lista // catch(bad_alloc) ?
+			//listaSalas.insere(salaTemp) // catch(bad_alloc) ?
 
 			break;
 
 			case 5:
-			//chama destrutor do temp // delete &salaTemp?
+			//chama destrutor do temp // delete salaTemp?
 			break;
 
 			default:
@@ -169,7 +171,7 @@ void Cinema::editarSala(){
 			cout << "4. Alterar a situação da sala" << endl;
 			cout << "5. Excluir sala" << endl;
 			cout << "6. Editar outra sala" << endl;
-			cout << "7. Voltar ao menu Sala" << endl;
+			cout << "7. Voltar ao menu sala" << endl;
 			cout << "Escolha uma opcao ";
 			cin >> opcao;
 
@@ -183,21 +185,21 @@ void Cinema::editarSala(){
 					cout << "Informe novo número de assentos: " << endl;
 					cin >> qtdeAssentosFileira;
 
-					//salaEscolhida.setQtdeAssentosNaFileira(idFileira, qtdeAssentosFileira); // catch(bad_alloc) / catch(string s) do erro de exceder capacidade ?
+					//salaEscolhida->setQtdeAssentosNaFileira(idFileira, qtdeAssentosFileira); // catch(bad_alloc) / catch(string s) do erro de exceder capacidade ?
 				break;
 
 				case 2:
 					cout << "Informe fileira: "<< endl;
 					cin >> idFileira;
 
-					//salaEscolhida.removeFileira(idFileira);
+					//salaEscolhida->removeFileira(idFileira);
 				break;
 
 				case 3:
 					cout << "Informe nova capacidade: " << endl; // catch(string s) do erro de exceder capacidade ?
 					cin >> novaCapacidade;
 
-					//salaEscolhida.setCapacidade(novaCapacidade);
+					//salaEscolhida->setCapacidade(novaCapacidade);
 				break;
 
 				case 4:
@@ -234,7 +236,7 @@ void Cinema::editarSala(){
 						break;
 					}*/
 
-					//salaEscolhida.setSituacao(novaSituacao);
+					//salaEscolhida->setSituacao(novaSituacao);
 				break;
 
 				case 5:
@@ -284,11 +286,11 @@ void Cinema::opcaoSessao(){
 			break;
 
 			case 2:
-				//cadastrarSessao();
+				cadastrarSessao();
 			break;
 
 			case 3:
-				//excluirSessao();
+				excluirSessao();
 			break;
 
 			case 4:
@@ -301,8 +303,9 @@ void Cinema::opcaoSessao(){
 }
 
 void Cinema::cadastrarSessao(){
+	//Sessao *novaSessao;
 	int numSala;
-	Horario hInicio, hFim;
+	//Horario hInicio, hFim;
 	string filme;
 
 	cout << "Informe o nome do filme ";
@@ -314,22 +317,28 @@ void Cinema::cadastrarSessao(){
 	cout << endl << "Informe o horário de fim: " << endl;
 	//cin >> hFim;
 
-	//listarSalasDisponiveis com base no horario
+	//listarSalasDisponiveis // salas que tem um período livre de pelo menos tanto quanto o período entre hInicio e hFim // FUCKING HARD MODE
 
 	cout << endl << "Informe número da sala na qual deseja cadastrar a sessão" << endl;
 	cin >> numSala;
+
+	// confirmar se sala escolhida tem período disponível, se não mostrar erro // HARD MODE (dica no txt da interface)
+
+	//novaSessao = new Sessao(filme, hInicio, hFim, *listaSalas.busca(numSala));
+
+	//listaSessoes.insere(novaSessao);
 }
 
 void Cinema::excluirSessao()
 {
-	int codExcluir;
+	int codSessao;
 
 	//listarSessoesExistentes();
 
 	cout << endl << "Informe o código da sessão a excluir: " << endl;
-	cin >> codExcluir;
+	cin >> codSessao;
 
-	//listaSessoes.remove(codExcluir);
+	//listaSessoes.remove(codSessao);
 }
 
 void Cinema::venderIngresso(){
@@ -360,19 +369,17 @@ void Cinema::venderIngresso(){
 }
 
 void Cinema::novaVenda(){
-	//Venda novaVenda;
-	//ListaIngresso listaIngressos;
+	//Venda *novaVenda;
+	//Ingresso tempIngresso;
 	int opcao;
 	int codSessao;
-	int qtdIngressos;
-	int meia=0;
 	int numSessao;
-	//vai precisar de uma ed pra guardar  ingressos
 
+	//novaVenda = new Venda();
 
 	do{
 		//listarSessoesExistentes();
-		//listarIngressosAdicionados();
+		//novaVenda.listarIngressos();
 		//cout << Valor total: R$ << novaVenda.calcularValorTotal() << endl;
 
 		cout << "1. Adicionar novo ingresso" << endl;
@@ -385,28 +392,33 @@ void Cinema::novaVenda(){
 
 		switch(opcao){
 			case 1:
-				cout << "Informe numero da Sessao Desejada" << endl;
+				cout << "Informe numero da sessão desejada" << endl;
 				cin >> numSessao;
 
 				//Lista poltronas e faz um while pra escolher as poltronas e tipo de ingresso
+				//constroi ingresso temp
+				//passa pra novaVenda.addIngresso(ingresso);
 			break;
+
 			case 2:
-				cout << "Remover ingresso número: " << endl;
+				cout << "Remover ingresso número: " << endl; // seleciona da lista de ingressos impressa ali em cima
 				//cin << 
-				//listaIngressos.remove();
+				//listaIngressos.remove(___);
 			break;
+
 			case 3:
-				//confirmarCompra(int codSessao, int qtdIngressos, int meia);//Metodo da ED
+				// destruir novaVenda e tempIngresso
 			break;
+
 			case 4:
-				//cancelarCompra(int meia); // destruir Ed de ingressos
+				//novaVenda.emitirIngresso();
+				//listaVendas.insere(novaVenda);
 			break;
-			case 5:
-			break;
+
 			default:
-				cout << "Opcao invalida" << endl;
+				cout << "Opcao inválida." << endl;
 		}
-	}while(opcao != 4);
+	}while(opcao != 3 && opcao != 4);
 }
 
 bool Cinema::confirmacao(){

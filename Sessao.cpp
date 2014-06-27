@@ -1,5 +1,18 @@
 #include "Sessao.h"
 
+Sessao::Sessao(string filme, Horario hI, Horario hF, Sala sal) : horarioInicio(hI), horarioFim(hF), sala(sal)
+{
+	if(sala->getSituacao() != disponivel)
+		throw "Sala indisponivel";
+
+	Sessao::filme = filme;
+}
+
+Sessao::~Sessao()
+{
+
+}
+
 int Sessao::getCodSessao()
 {
 	return codSessao;
@@ -18,12 +31,20 @@ void Sessao::setStatus(bool encerrada){
 	Sessao::encerrada = encerrada;
 }
 
-Horario Sessao::getHorario(){
-	return horario;
+Horario Sessao::getHorarioInicio(){
+	return horarioInicio;
 }
 
-void Sessao::setHorario(Horario novoHorario){
-	horario = novoHorario;
+void Sessao::setHorarioInicio(Horario novoHorario){
+	horarioInicio = novoHorario;
+}
+
+Horario Sessao::getHorarioFim(){
+	return horarioFim;
+}
+
+void Sessao::setHorarioFim(Horario novoHorario){
+	horarioFim = novoHorario;
 }
 
 bool Sessao::getDisponivel(){
@@ -43,13 +64,4 @@ string Sessao::getFilme(){
 
 void Sessao::setFilme(string nomeFilme){
 	Sessao::filme = filme;
-}
-
-Sessao::Sessao(string filme, Sala *sal, Horario h) : horario(h)
-{
-	if(sala->getSituacao() != disponivel)
-		throw "Sala indisponivel"
-
-	Sessao::filme = filme;
-	sala = sal;
 }

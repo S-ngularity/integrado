@@ -16,7 +16,6 @@ class Cinema{
 		//ListaSala salas;
 		//ED sessoes
 		//ED vendas
-		//Talvez tenha ED ingressos
 
 		//metodos de Interface
 		void telaInicial();

@@ -4,16 +4,15 @@
 #include <iostream>
 
 template <class Tipo>
-
-class No{
-
+class No
+{
 //-----Atributos-----------------------
-	private:
+private:
 	Tipo *elemto;
 	No<Tipo> * prox;
 
 //-----------------Metodos-----------------------------------
-	public:
+public:
 	Tipo * getElemto(){
 		return No::elemto;
 	}
@@ -44,40 +43,46 @@ class No{
 
 
 };
-template <class Tipo>
-class Lista{
 
+template <class Tipo>
+class Lista
+{
 //----------Atributos---------------------------------------------
-	private:
+private:
 	No<Tipo> *cabeca;
 
 
 //-------------------Metodos --------------------------------------
 
-	public:
-		No<Tipo> * getCabeca(){
-			return Lista::cabeca;
+public:
+	No<Tipo> * getCabeca()
+	{
+		return Lista::cabeca;
+	}
+
+	void setCabeca(No<Tipo> * no)
+	{
+		Lista::cabeca = no;
+	}
+
+	void insere(Tipo *elemento)
+	{
+		No<Tipo>* temp = cabeca;
+
+		if(temp == NULL)
+		{
+			cabeca = new No<Tipo>(elemento);
+			return;
 		}
-		void setCabeca(No<Tipo> * no){
-			Lista::cabeca = no;
-		}
 
-		void insere(Tipo *elemento){
-			No<Tipo>* temp = cabeca;
-			if(temp == NULL)
-			{
-				cabeca = new No<Tipo>(elemento);
-				return;
-			}
-			while(temp->getProx() != NULL)
-				temp = temp->getProx();
+		while(temp->getProx() != NULL)
+			temp = temp->getProx();
 
-			temp->setProx(new No<Tipo>(elemento));
+		temp->setProx(new No<Tipo>(elemento));
+	}
 
-		}
-
-
-	void remove(){
+	void remove()
+	{
 		No<Tipo>* temp = Lista<Tipo>::cabeca;
 
 
@@ -100,7 +105,8 @@ class Lista{
 		delete aux;
 	}
 
-	int qtdeElementos(){
+	int qtdeElementos()
+	{
 		No<Tipo>* temp = Lista::cabeca;
 		int qtde = 0;
 
@@ -119,20 +125,18 @@ class Lista{
 //-----------------Construtor e Destrutor------------------------------
 	public:
 
-		Lista(){
-
+		Lista()
+		{
 			Lista::cabeca = NULL;
-
 		}
-		~Lista(){
 
-
+		~Lista()
+		{
 			while(Lista::cabeca != NULL)
 			{
 				Lista::remove();
 			}
-
 		}
-
 };
+
 #endif

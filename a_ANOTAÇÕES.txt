@@ -30,9 +30,6 @@ Sessao
 Sala
 	Construtor de cópia.
 
-	Checar se adicionar assentos não excede capacidade.
-	E se alterar capacidade para menos não deixa mais assentos do que capacidade.
-
 Fileira
 	Construtor de cópia.
 

@@ -18,7 +18,8 @@ private:
 	Sala *sala;
 
 public:
-	Sessao(string filme, Sala *sal, Horario h);
+	Sessao(string filme, Horario hI, Horario hF, Sala sal);
+	~Sessao();
 
 	int getCodSessao();
 	void setCodSessao(int novoCod);
@@ -26,8 +27,11 @@ public:
 	bool getStatus(); //retorna encerrada
 	void setStatus(bool encerrada); //altera encerrada
 
-	Horario getHorario(); //discutir implementacao
-	void setHorario(Horario novoHorario);
+	Horario getHorarioInicio();
+	void setHorarioInicio(Horario novoHorario);
+
+	Horario getHorarioFim();
+	void setHorarioFim(Horario novoHorario);
 
 	bool getDisponivel();
 

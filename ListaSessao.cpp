@@ -70,7 +70,7 @@ No<Sessao>* temp = getCabeca(), *aux;
 	//Caso de inserir quando só tem um elemento
 	if(temp->getProx() == NULL)
 	{
-		if(*(temp->getElemto()) > *(s)
+		if(*(temp->getElemto()) > *(s))
 		{
 			add = temp->getElemto();
 			temp->setElemto(s);

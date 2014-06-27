@@ -10,7 +10,7 @@ private:
 	int codVenda;
 	Horario dtVenda;
 	float valorTotal;
-	ListaIngresso lista;
+	ListaIngresso listaIngressos;
 
 public:
 	Venda(); //Definir parametros //se necessario, adicionar destrutor

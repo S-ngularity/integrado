@@ -1,36 +1,36 @@
 #include "venda.h"
 
-Venda() //Definir parametros //se necessario, adicionar destrutor
+Venda::Venda() //Definir parametros //se necessario, adicionar destrutor
 {
 
 }
 
-int getCodVenda()
+int Venda::getCodVenda()
 {
 	return codVenda;
 }
 
-void setCodVenda(int novoCod)
+void Venda::setCodVenda(int novoCod)
 {
 	codVenda = novoCod;
 }
 
-float calcularValorTotal()
+float Venda::calcularValorTotal()
 {
 
 }
 
-void emitirIngresso(array ingresso) //verificar como e que vai usar esse array parametro
+void Venda::emitirIngresso(array ingresso) //verificar como e que vai usar esse array parametro
 {
 
 }
 
-void addIngresso(Ingresso ingresso) //verificar se vai usar referencia ou assim mesmo
+void Venda::addIngresso(Ingresso ingresso) //verificar se vai usar referencia ou assim mesmo
 {
 
 }
 
-void removeIngresso(Ingresso ingresso) //o mesmo de add
+void Venda::removeIngresso(Ingresso ingresso) //o mesmo de add
 {
 
 }
