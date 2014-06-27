@@ -78,8 +78,6 @@ class Lista{
 	void remove(){
 		No<Tipo>* temp = Lista<Tipo>::cabeca;
 
-
-
 		if(temp == NULL)
 			throw "Impossível remover, lista Vazia!";
 
@@ -89,6 +87,7 @@ class Lista{
 			Lista::cabeca = NULL;
 			return;
 		}
+
 		while(temp->getProx()->getProx() != NULL)
 			temp = temp->getProx();
 

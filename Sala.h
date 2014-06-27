@@ -5,20 +5,20 @@
 #include <iostream>
 
 using namespace std;
-typedef enum {disponivel = 0, manuEquipamento, reforma, manuGeral} Estado;
+typedef enum {disponivel = 0, manuEquipamento, reforma, manuGeral} Situacao;
 
 class Sala
 {
 //--------Atributos-------------------
 private:
-	Estado situacao;
+	Situacao situacao;
 	int numSala;
 	int capacidade;
-	ListaFileira fila;
+	ListaFileira listaFileiras;
 
 public:
 	Sala(int num);
-	~Sala(); // IMPLEMENTAR DESALOCAÇÃO
+	~Sala();
 
 	int getNumSala();
 	void setNumSala(int numSala);
@@ -26,17 +26,21 @@ public:
 	int getCapacidade();
 	void setCapacidade(int novaCap);
 
-	Estado getSituacao();
-	void setSituacao(Estado alteracao);
+	Situacao getSituacao();
+	void setSituacao(Situacao alteracao);
 
-	void addFileira(int qtdFileiras); // TO DO
+	int getQtdFileiras();
+
+	void addFileirasComAssentos(int qtdeFileiras, int assentosPorFileira);
 	void removeFileira(char fileira); // TO DO
 
-	void addAssentos(char fileira, int qtdeAssentos); // TO DO
-	void removeAssentos(char fileira, int qtdeRemover); // TO DO
+	int getQtdAssentosNaFileira(char fileira);
+	void setQtdeAssentosNaFileira(char fileira, int novaQtde);
 
-	void ocuparAssento(char fileira, int assento); // TO DO
-	void desocuparAssento(char fileira, int assento); // TO DO
+	bool verificaDispAssento(char fileira, int assento);
+
+	void ocuparAssento(char fileira, int assento);
+	void desocuparAssento(char fileira, int assento);
 };
 
 #endif

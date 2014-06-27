@@ -7,6 +7,7 @@ Assento *ListaAssento::busca(int id){
 	{
 		if(temp->getElemto()->getIdAssento() == id)
 			return temp->getElemto();
+
 		temp = temp->getProx();
 	}
 
@@ -27,5 +28,4 @@ int ListaAssento::getQtdeAssentos(){
 }
 
 ListaAssento::ListaAssento():Lista(){}
-
 ListaAssento::~ListaAssento(){}

@@ -1,16 +1,27 @@
 #include "Sala.h"
 
+Sala::Sala(int num) : listaFileiras()
+{
+	numSala = num;
+	capacidade = 0;
+	situacao = disponivel;
+}
+
+Sala::~Sala(){}
+
 int Sala::getNumSala(){
 
 	return numSala;
 }
 
-void Sala::setNumSala(int numSala){
+void Sala::setNumSala(int numSala)
+{
 
 	Sala::numSala = numSala;
 }
 
-int Sala::getCapacidade(){
+int Sala::getCapacidade()
+{
 	return capacidade;
 }
 
@@ -19,12 +30,12 @@ void Sala::setCapacidade(int novaCap)
 	capacidade = novaCap;
 }
 
-string Sala::getSituacao()
+Situacao Sala::getSituacao()
 {
 	return situacao;
 }
 
-void Sala::setSituacao(Estado alteracao)
+void Sala::setSituacao(Situacao alteracao)
 {
 	if(alteracao >= 0 && alteracao < 4)
 		situacao = alteracao;
@@ -33,32 +44,51 @@ void Sala::setSituacao(Estado alteracao)
 		throw "Situacao invalida";
 }
 
-Sala::Sala(int num) : fila(), numSala(num)
+int Sala::getQtdFileiras()
 {
-	capacidade = 0;
-	situacao = disponivel;
+	listaFileiras.getQtdeFileiras();
 }
 
-Sala::~Sala(){}
+void Sala::addFileirasComAssentos(int qtdeFileiras, int assentosPorFileira)
+{
+	Fileira *temp;
 
-/*
-	Fileira *temporario;
-
-	int i;
-	Fileira::numFileira = -1;
-	for(i = 0; i < qtdeFileiras; i++)
+	for(int i = 0; i < qtdeFileiras; i++)
 	{
-		temporario = new Fileira('A' + i, assentosFileira);
-		fila.insere(temporario);
+		temp = new Fileira('@' + getQtdFileiras() + 1, assentosPorFileira);
 
+		listaFileiras.insere(temp);
 	}
 
+	setCapacidade(getCapacidade() + qtdeFileiras * assentosPorFileira);
+}
 
-	if(capacidade % assentosFileira > 0)
-	{
-		temporario = new Fileira('A' + i, capacidade % assentosFileira);
-		fila.insere(temporario);
-		qtdeFileiras++;
+void Sala::removeFileira(char fileira)
+{
 
-	}
-*/
+}
+
+int Sala::getQtdAssentosNaFileira(char fileira)
+{
+	listaFileiras.busca(fileira)->getQtdeAssentos();
+}
+
+void Sala::setQtdeAssentosNaFileira(char fileira, int novaQtde)
+{
+	listaFileiras.busca(fileira)->setQtdeAssentos(novaQtde);
+}
+
+bool Sala::verificaDispAssento(char fileira, int assento)
+{
+	listaFileiras.busca(fileira)->verificaDispAssento(assento);
+}
+
+void Sala::ocuparAssento(char fileira, int assento)
+{
+	listaFileiras.busca(fileira)->ocuparAssento(assento);
+}
+
+void Sala::desocuparAssento(char fileira, int assento)
+{
+	listaFileiras.busca(fileira)->desocuparAssento(assento);
+}

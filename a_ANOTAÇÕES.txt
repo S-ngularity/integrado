@@ -4,40 +4,41 @@
 	- Venda -> Sessao? (só setNumVendido()? talvez tambem atualize a disponibilidade de assento. mas não deve poder mudar os outros sets() de sessao)
 
 
-Sala
-	Deviamos ter um método de adicionar fileira? E um de adicionar assento na fileira?
-	
-	- Como adicionar/deletar fileiras e assentos (boundary)?
 
-	- Ver comentário em fileira quanto ao encapsulamento. Não podemos ter função que retorna ponteiro pra assento (a não ser que seja pra passar pra ingresso... temos que ver)	
-
-Fileira
-	Não devemos ter funções que retornam ponteiros para um membro da lista (quebra encapsulamento). Tem que ter em Fileira uma função pra ocupar/desocupar um assento (e talvez getassento), e ela chama a função do endereço do ponteiro interno.
-
-	Como usar atributo num?
-
-	Precisa da função setQtdeAssentos(qtde) (poderia ser feito pelo boundary)?
-
-Assento
-	Correto
+Listas
+	Construtor de cópia.
 
 ListaFileira
-	Quando usaremos setQtdeAssentos(qtde)? Qual a diferença dessa pra função de mesmo nome da classe Fileira?
+	Correto.
 
 ListaAssento
-	Quando usamos a função getQtdeAssentos()?
+	Correto.
 
 ListaSala
 	Correto.
 
+ListaIngresso
+	Correto.
+
+
+
+
+
 Sessao
+	Correto.
+
+Sala
+	Construtor de cópia.
+
+Fileira
+	Construtor de cópia.
+
+Assento
 	Correto.
 
 Ingresso
 	Correto.
 
-ListaIngresso
-	Correto.
 
 Venda
 	
@@ -48,3 +49,4 @@ Data
 
 Horario
 	Correto
+

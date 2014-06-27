@@ -12,6 +12,7 @@ public:
 	~ListaFileira();
 
 	Fileira *busca(char id);
+	int getQtdeFileiras();
 };
 
 #endif

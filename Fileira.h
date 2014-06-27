@@ -3,29 +3,25 @@
 
 #include "ListaAssento.h"
 
+class Fileira
+{
+private:
+	int qtdeAssentos;
+	char idFileira;
+	ListaAssento listaAssentos;
+public:
+	Fileira(char id, int qtdAssentosFileira);
+	~Fileira();
 
-class Fileira{
+	bool verificaDispAssento(int assento);
 
-//--------Atributos----------------
-	private:
-		char idFileira;
-		ListaAssento assento;
-		int num;
+	void ocuparAssento(int num);
+	void desocuparAssento(int num);
 
-	public:
-		static int numFileira;
+	int getQtdeAssentos();
+	void setQtdeAssentos(int novaQtde);
 
-
-//-------Metodos----------------------
-
-	public:
-		bool verificaDisponibilidade();
-		Assento *getAssento(int id);
-		void setQtdeAssentos(int qtde);
-		char getIdFileira();
-//--------Construtores e Desrutores-----------
-	public:
-		Fileira(char id, int qtdAssentosFileira);//definir parametros
-		~Fileira();
+	char getIdFileira();
 };
+
 #endif
