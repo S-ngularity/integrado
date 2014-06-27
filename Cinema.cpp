@@ -130,8 +130,7 @@ void Cinema::cadastrarSala(){
 			break;
 
 			case 4:
-			//adiciona na lista
-			//caso nao conseguir mostra erro
+			//adiciona na lista // catch(bad_alloc) ?
 
 			break;
 
@@ -285,11 +284,11 @@ void Cinema::opcaoSessao(){
 			break;
 
 			case 2:
-				cadastrarSessao();
+				//cadastrarSessao();
 			break;
 
 			case 3:
-				excluirSessao();
+				//excluirSessao();
 			break;
 
 			case 4:
@@ -347,7 +346,7 @@ void Cinema::venderIngresso(){
 
 		switch(opcao){
 			case 1:
-				iniciarCompra();
+				novaVenda();
 			break;
 
 			case 2:
@@ -361,8 +360,8 @@ void Cinema::venderIngresso(){
 }
 
 void Cinema::novaVenda(){
-	Venda novaVenda;
-	ListaIngresso listaIngressos;
+	//Venda novaVenda;
+	//ListaIngresso listaIngressos;
 	int opcao;
 	int codSessao;
 	int qtdIngressos;
@@ -392,7 +391,7 @@ void Cinema::novaVenda(){
 				//Lista poltronas e faz um while pra escolher as poltronas e tipo de ingresso
 			break;
 			case 2:
-				cout << "Remover ingresso número: " << enfl;
+				cout << "Remover ingresso número: " << endl;
 				//cin << 
 				//listaIngressos.remove();
 			break;

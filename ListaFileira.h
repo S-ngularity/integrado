@@ -7,14 +7,17 @@
 
 class ListaFileira: public Lista<Fileira>
 {
+private:
+	void renameAll();
+
 public:
 	ListaFileira();
 	~ListaFileira();
 
-	void removeFileira(char id);
-	//int getQtdeAssentos();
-
 	Fileira *busca(char id);
+	
+	void removeFileira(char id);
+	int getQtdeAssentos();
 };
 
 #endif

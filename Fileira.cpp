@@ -28,8 +28,14 @@ void Fileira::desocuparAssento(int num)
 	listaAssentos.busca(num)->desocuparAssento();
 }
 
-char Fileira::getIdFileira(){
+char Fileira::getIdFileira()
+{
 	return idFileira;
+}
+
+void Fileira::setIdFileira(char id)
+{
+	idFileira = id;
 }
 
 int Fileira::getQtdeAssentos()

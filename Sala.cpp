@@ -29,7 +29,7 @@ void Sala::setCapacidade(int novaCap)
 {
 	if(novaCap < totalAssentosAtual)
 	{
-		throw "Nova capacidade é menor do que quantidade de assentos. Remova assentos antes de alterar capacidade."
+		throw "Nova capacidade é menor do que quantidade de assentos. Remova assentos antes de alterar capacidade.";
 	}
 
 	else
@@ -61,7 +61,7 @@ void Sala::addFileirasComAssentos(int qtdeFileiras, int assentosPorFileira)
 
 	if(totalAssentosAtual + qtdeFileiras * assentosPorFileira > getCapacidade())
 	{
-		throw "Essa operação excede a capacidade da sala."
+		throw "Essa operação excede a capacidade da sala.";
 	}
 
 	else
@@ -79,8 +79,8 @@ void Sala::addFileirasComAssentos(int qtdeFileiras, int assentosPorFileira)
 
 void Sala::removeFileira(char fileira)
 {
-
-	// atualizar total assentos
+	listaFileiras.removeFileira(fileira);
+	totalAssentosAtual = listaFileiras.getQtdeAssentos();
 }
 
 int Sala::getQtdAssentosNaFileira(char fileira)
@@ -92,7 +92,7 @@ void Sala::setQtdeAssentosNaFileira(char fileira, int novaQtde)
 {
 	if(totalAssentosAtual - listaFileiras.busca(fileira)->getQtdeAssentos() + novaQtde > capacidade)
 	{
-		throw "Essa operação excede a capacidade da sala."
+		throw "Essa operação excede a capacidade da sala.";
 	}
 
 	else

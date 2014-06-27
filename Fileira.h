@@ -22,6 +22,7 @@ public:
 	void setQtdeAssentos(int novaQtde);
 
 	char getIdFileira();
+	void setIdFileira(char id);
 };
 
 #endif

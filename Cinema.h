@@ -1,6 +1,7 @@
 #ifndef CINEMA_H
 #define CINEMA_H
 
+#include "Horario.h"
 //#include "ListaSala.h"
 //#include "ED sessoes"
 //#include "ED vendas"
@@ -25,7 +26,7 @@ class Cinema{
 		void cadastrarSala();
 		void editarSala();
 		void cadastrarSessao();
-		void editarSessao();
+		void excluirSessao();
 		void novaVenda();
 		bool confirmacao();
 		//-----------------------

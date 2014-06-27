@@ -33,8 +33,8 @@ public:
 	int getQtdFileiras();
 
 	void addFileirasComAssentos(int qtdeFileiras, int assentosPorFileira);
-	void removeFileira(char fileira); // TO DO
-
+	void removeFileira(char fileira);
+	
 	int getQtdAssentosNaFileira(char fileira);
 	void setQtdeAssentosNaFileira(char fileira, int novaQtde);
 

@@ -1,5 +1,20 @@
 #include "ListaFileira.h"
 
+void ListaFileira::renameAll()
+{
+	No<Fileira>* temp = getCabeca();
+
+	char id = 'A';
+
+	while(temp != NULL)
+	{
+		temp->getElemto()->setIdFileira(id);
+
+		temp = temp->getProx();
+		id += 1;
+	}
+}
+
 Fileira *ListaFileira::busca(char id){
 	No<Fileira>* temp = getCabeca();
 
@@ -13,6 +28,7 @@ Fileira *ListaFileira::busca(char id){
 
 	throw "Fileira nao encontrada";
 }
+
 void ListaFileira::removeFileira(char id){
 
 	No<Fileira>* temp = getCabeca();
@@ -22,25 +38,32 @@ void ListaFileira::removeFileira(char id){
 	{
 		throw "Lista Vazia , impossivel remover";
 	}
+
 	//Caso de remover quando só tem um elemento
 	if(temp->getProx() == NULL)
 	{
 		if(temp->getElemto()->getIdFileira() == id)
 		{
 			remove();
+
+			renameAll();
 			return;
 		}
 		else
 			throw "Elemento nao encontrado";
 
 	}
+
 	if(temp->getElemto()->getIdFileira() == id)
 	{
 		excluido = getCabeca();
 		setCabeca(temp->getProx());
 		delete excluido;
+
+		renameAll();
 		return;
 	}
+
 	while(temp->getProx() != NULL)
 	{
 		if(temp->getProx()->getElemto()->getIdFileira() == id)
@@ -49,6 +72,8 @@ void ListaFileira::removeFileira(char id){
 			temp->setProx(temp->getProx()->getProx());
 
 			delete excluido;
+
+			renameAll();
 			return;
 		}
 
@@ -56,12 +81,9 @@ void ListaFileira::removeFileira(char id){
 	}
 
 	throw "Elemento nao encontrado";
-
-
-
 }
 
-/*int ListaFileira::getQtdeAssentos(){
+int ListaFileira::getQtdeAssentos(){
 
 	No<Fileira>* temp = getCabeca();
 	int qtde = 0;
@@ -74,7 +96,7 @@ void ListaFileira::removeFileira(char id){
 	}
 
 	return qtde;
-}*/
+}
 
 ListaFileira::ListaFileira():Lista<Fileira>(){}
 ListaFileira::~ListaFileira(){}
