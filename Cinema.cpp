@@ -32,7 +32,7 @@ void Cinema::telaInicial(){
 			case 4:
 			break;
 			default:
-				cout << "Opcao invalida" << endl;
+				cout << "Opção inválida" << endl;
 		}
 
 		cout << endl;
@@ -45,10 +45,10 @@ void Cinema::opcaoSala(){
 
 	do{
 		cout << endl;
-		cout << "1. Cadastrar Sala" << endl;
-		cout << "2. Editar Sala" << endl;
-		cout << "3. Voltar ao Menu Principal" << endl;
-		cout << "Escolha uma opcao ";
+		cout << "1. Cadastrar sala" << endl;
+		cout << "2. Editar sala" << endl;
+		cout << "3. Voltar ao menu principal" << endl;
+		cout << "Escolha uma opção: ";
 		cin >> opcao;
 
 		cout << endl;
@@ -63,7 +63,7 @@ void Cinema::opcaoSala(){
 			case 3:
 			break;
 			default:
-				cout << "Opcao invalida" << endl;
+				cout << "Opção inválida" << endl;
 
 
 		}
@@ -92,6 +92,7 @@ void Cinema::cadastrarSala(){
 		cout << "2. Excluir uma fileira" << endl;
 		cout << "3. Alterar numero de assentos de uma fileira" << endl;
 		cout << "4. Confirmar" << endl;
+		cout << "Escolha uma opção: ";
 
 		cin >> opcao;
 
@@ -251,155 +252,104 @@ void Cinema::editarSala(){
 
 void Cinema::opcaoSessao(){
 	int opcao;
+	//Sessao *novaSessao;
 
 	do{
-		cout << "1. Cadastrar Sessao" << endl;
-		cout << "2. Editar Sessao" << endl;
-		cout << "3. Voltar ao Menu Principal" << endl;
-		cout << "Escolha uma opcao ";
-		cin >> opcao;
 		cout << endl;
+		cout << "1. Listar sessões existentes" << endl;
+		cout << "2. Cadastrar sessão" << endl;
+		cout << "3. Excluir sessão" << endl;
+		cout << "4. Voltar ao Menu Principal" << endl;
+		cout << "Escolha uma opção: ";
+		cin >> opcao;
 
-		switch(opcao){
+		//salaEscolhida = listaSalas.busca(numSala);
+
+		switch(opcao)
+		{
 			case 1:
+				//listarSessoesExistentes();
+			break;
+
+			case 2:
 				cadastrarSessao();
 			break;
-			case 2:
-				editarSessao();
-			break;
+
 			case 3:
+				excluirSessao();
 			break;
+
+			case 4:
+			break;
+
 			default:
-				cout << "Opcao invalida" << endl;
-
-
+				cout << "Opção inválida." << endl;
 		}
-	}while(opcao!=3);
+	}while(opcao != 4);
 }
 
 void Cinema::cadastrarSessao(){
+	int numSala;
+	Horario hInicio, hFim;
 	string filme;
-	//horario;
-	int codSala;
-	bool confirmacao;
 
 	cout << "Informe o nome do filme ";
 	cin >> filme;
 
-	cout << endl << "Informe o horario de inicio " << endl;
-	//cin >> //horario;
+	cout << endl << "Informe o horário de início: " << endl;
+	//cin >> hInicio;
+
+	cout << endl << "Informe o horário de fim: " << endl;
+	//cin >> hFim;
 
 	//listarSalasDisponiveis com base no horario
 
-	cout << endl << "Informe numero da sala na qual deseja cadastrar a sessao" << endl;
-	cin >> codSala;
-
-	cout << endl << "Confirme se os dados inseridos estao corretos" << endl;
-	cout << "Codigo do filme: " << filme << endl;
-	cout << "Horario de inicio: " << 2/*horario*/ << endl;
-	cout << "Numero da sala: " << codSala << endl;
-	cout << "Digite 1 para confirmar ou 0 para sair" << endl;
-	cin >> confirmacao;
-
-	if(confirmacao == 1){
-		//chamar construtor;
-		cout << endl << "Sessao adicionada a sala: " << codSala << " com sucesso" << endl;
-	}
-
-	else
-		cout << "Sessao nao foi adicionada" << endl;
+	cout << endl << "Informe número da sala na qual deseja cadastrar a sessão" << endl;
+	cin >> numSala;
 }
 
-void Cinema::editarSessao(){
-	int opcao;
-	int idSessao;
-	string filme;
+void Cinema::excluirSessao()
+{
+	int codExcluir;
 
-	do{
-		cout << "1. Listar Sessoes Existentes" << endl;
-		cout << "2. Excluir Sessao" << endl;
-		cout << "3. Alterar Horario de Exibicao" << endl;
-		cout << "4. Alterar Filme" << endl;
-		cout << "5. Voltar ao menu Sessao" << endl;
-		cout << "Escolha uma opcao ";
-		cin >> opcao;
-		cout << endl;
-		switch(opcao){
-			case 1:
-				//listarSessosExistentes(); metodo da lista
-			break;
+	//listarSessoesExistentes();
 
-			case 2:
-				cout << "Informe numero da Sessao:" << endl;
-				cin >> idSessao;
-				cout << "Certeza que quer excluir sessao de numero" << idSessao << "?" << endl;
-				if(confirmacao())
-					cout << "Apaga depois" << endl;
-					//busca sessao
-					//excluirSessao();
-			break;
-			case 3:
-				cout << "Informe numero da Sessao:" << endl;
-				cin >> idSessao;
-				int novoHorario;
-				cout << "Informe o novo horario da sessao" << endl;
-				cin >> novoHorario;
-				cout << "Certeza que quer alterar horario da sessao para " << novoHorario << "?" << endl;
+	cout << endl << "Informe o código da sessão a excluir: " << endl;
+	cin >> codExcluir;
 
-				if(confirmacao())
-					cout << "Apagar Depois" << endl;
-					//Buscar Sessao na lista
-					//chamar metodo set e passar novoHorario
-			break;
-			case 4:
-				cout << "Informe numero da Sessao:" << endl;
-				cin >> idSessao;
-				cout << "Informe o novo filme que sera exibido nessa sessao" << endl;
-				cin >> filme;
-				cout << "Certeza que quer alterar o filme da sessao para " << filme << "?" << endl;
-
-				if(confirmacao())
-					cout << "Apaga Depois" << endl;
-					//Busca sessao
-					//altera filme
-			break;
-			case 5:
-			break;
-			default:
-				cout << "Opcao invalida" << endl;
-		}
-		cout << endl;
-	}while(opcao!=5);
+	//listaSessoes.remove(codExcluir);
 }
+
 void Cinema::venderIngresso(){
 	int opcao;
 
 	do{
-		cout << "1. Listar Sessoes Disponiveis" << endl;
-		cout << "2. Iniciar Compra " << endl;
-		cout << "3. Voltar ao Menu Principal" << endl;
-		cout << "Escolha uma opcao ";
+		//listarSessoesExistentes();
+
+		cout << "1. Iniciar nova venda: " << endl;
+		cout << "2. Voltar ao menu principal" << endl;
+		cout << "Escolha uma opção: ";
 		cin >> opcao;
 		cout << endl;
 
 		switch(opcao){
 			case 1:
-				//listarSessoesDisponiveis();
-			break;
-			case 2:
 				iniciarCompra();
 			break;
-			case 3:
+
+			case 2:
 			break;
+
 			default:
 				cout << "Opcao invalida" << endl;
-
-
 		}
 		cout << endl;
-	}while(opcao!=3);
+	}while(opcao != 2);
 }
-void Cinema::iniciarCompra(){
+
+void Cinema::novaVenda(){
+	Venda novaVenda;
+	ListaIngresso listaIngressos;
 	int opcao;
 	int codSessao;
 	int qtdIngressos;
@@ -409,11 +359,14 @@ void Cinema::iniciarCompra(){
 
 
 	do{
-		cout << "1. Informar Sessao Desejada" << endl;
-		cout << "2. Calcular Valor Total" << endl;
-		cout << "3. Confirmar Compra" << endl;
-		cout << "4. Cancelar Compra" << endl;
-		cout << "5. Voltar ao menu Venda" << endl;
+		//listarSessoesExistentes();
+		//listarIngressosAdicionados();
+		//cout << Valor total: R$ << novaVenda.calcularValorTotal() << endl;
+
+		cout << "1. Adicionar novo ingresso" << endl;
+		cout << "2. Remover ingresso" << endl;
+		cout << "3. Cancelar venda" << endl;
+		cout << "4. Confirmar venda" << endl;
 		cout << "Escolha uma opcao ";
 		cin >> opcao;
 		cout << endl;
@@ -426,7 +379,9 @@ void Cinema::iniciarCompra(){
 				//Lista poltronas e faz um while pra escolher as poltronas e tipo de ingresso
 			break;
 			case 2:
-				//calcularValorTotal(array de ingresso);//metodo da ED
+				cout << "Remover ingresso número: " << enfl;
+				//cin << 
+				//listaIngressos.remove();
 			break;
 			case 3:
 				//confirmarCompra(int codSessao, int qtdIngressos, int meia);//Metodo da ED
@@ -439,7 +394,7 @@ void Cinema::iniciarCompra(){
 			default:
 				cout << "Opcao invalida" << endl;
 		}
-	}while(opcao!=5);
+	}while(opcao != 4);
 }
 
 bool Cinema::confirmacao(){

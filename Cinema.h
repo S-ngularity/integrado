@@ -26,7 +26,7 @@ class Cinema{
 		void editarSala();
 		void cadastrarSessao();
 		void editarSessao();
-		void iniciarCompra();
+		void novaVenda();
 		bool confirmacao();
 		//-----------------------
 

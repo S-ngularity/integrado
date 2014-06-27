@@ -43,36 +43,36 @@
 	"3. Voltar ao Menu Principal
 
 "2. Sessao"
+	"Listar sessoes"
 
-		"Listar sessoes"
+	"Cadastrar Sessao"
+		>sala
+		>horario de inicio
+		>horario de fim
+		>filme
 
-		"Cadastrar Sessao"
-			>sala
-			>horario de inicio
-			>horario de fim
-			>filme
+		>percorrer lista de sessoes
+			>se sessao atual.sala.num == salaInformada
+				>adiciona ponteiro p/ sessao atual ordenado por horario de inicio numa lista<Sessao*>
+		
+		>for(i = 0; hInicio < v[i].hFim; i++) // TRATAR VAZIO ANTES DA PRIMEIRA SESSAO E DEPOIS DA ÚLTIMA (v[0] e v[fim] = especial?) 
+		
+		>if(hInicio < v[i+1].i)
+			adicionar sesao
+		>else
+			erro
 
-			>percorrer lista de sessoes
-				>se sessao atual.sala.num == salaInformada
-					>adiciona ponteiro p/ sessao atual ordenado por horario de inicio numa lista<Sessao*>
-			
-			>for(i = 0; hInicio < v[i].hFim; i++) // TRATAR VAZIO ANTES DA PRIMEIRA SESSAO E DEPOIS DA ÚLTIMA (v[0] e v[fim] = especial?) 
-			
-			>if(hInicio < v[i+1].i)
-				adicionar sesao
-			>else
-				erro
+	"Excluir sessao"
+		>pedir codigo
 
-		"Excluir sessao"
-			>pedir codigo
-
-		"Voltar ao Menu Principal"
+	"Voltar ao Menu Principal"
 
 "3. Venda"
 
 	"Nova venda"
 		>Listar Sessoes Disponiveis (não apaga / reimprime sempre)
 		>Listar ingressos atualmente adicionados
+		>Mostra valor total da venda
 
 		"Novo ingresso"
 			>Meia ou inteira
@@ -86,15 +86,12 @@
 
 		"Remover ingresso"
 			>voltar assento do ingresso para disponivel antes de apagar
-
-		"Calcular Valor Total"
-			>Venda::calcularValorTotal()
-
-		"Confirmar Compra"
-			>Venda::emitirIngressos()
-
-		"Cancelar Compra"
+		
+		"Cancelar venda"
 			>voltar todos os assentos dos ingressos para disponivel antes de destruir array
+
+		"Confirmar venda"
+			>Venda::emitirIngressos()
 
 		"Voltar ao menu Venda"
 
