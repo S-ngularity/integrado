@@ -76,6 +76,8 @@ int Sala::getQtdAssentosNaFileira(char fileira)
 void Sala::setQtdeAssentosNaFileira(char fileira, int novaQtde)
 {
 	listaFileiras.busca(fileira)->setQtdeAssentos(novaQtde);
+	//Se quiser atualizar Capacidade, descomenta abaixo:
+	//capacidade = listaFileiras.getQtdeAssentos();
 }
 
 bool Sala::verificaDispAssento(char fileira, int assento)

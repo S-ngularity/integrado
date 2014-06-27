@@ -16,6 +16,8 @@ private:
 	int capacidade;
 	ListaFileira listaFileiras;
 
+
+
 public:
 	Sala(int num);
 	~Sala();
@@ -24,7 +26,7 @@ public:
 	void setNumSala(int numSala);
 
 	int getCapacidade();
-	void setCapacidade(int novaCap);
+	void setCapacidade(int novaCap);//talvez tornar privado
 
 	Situacao getSituacao();
 	void setSituacao(Situacao alteracao);

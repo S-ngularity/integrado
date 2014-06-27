@@ -1,11 +1,11 @@
 #include "Sessao.h"
 
-int getCodSessao()
+int Sessao::getCodSessao()
 {
 	return codSessao;
 }
 
-void setCodSessao(int novoCod)
+void Sessao::setCodSessao(int novoCod)
 {
 	codSessao = novoCod;
 }
