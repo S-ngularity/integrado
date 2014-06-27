@@ -9,24 +9,23 @@ typedef enum {disponivel = 0, manuEquipamento, reforma, manuGeral} Situacao;
 
 class Sala
 {
-//--------Atributos-------------------
 private:
 	Situacao situacao;
 	int numSala;
 	int capacidade;
 	ListaFileira listaFileiras;
 
-
+	int totalAssentosAtual;
 
 public:
-	Sala(int num);
+	Sala(int num, int cap);
 	~Sala();
 
 	int getNumSala();
 	void setNumSala(int numSala);
 
 	int getCapacidade();
-	void setCapacidade(int novaCap);//talvez tornar privado
+	void setCapacidade(int novaCap);
 
 	Situacao getSituacao();
 	void setSituacao(Situacao alteracao);

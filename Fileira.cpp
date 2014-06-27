@@ -40,11 +40,10 @@ int Fileira::getQtdeAssentos()
 void Fileira::setQtdeAssentos(int novaQtde){
 	int diferenca = novaQtde - qtdeAssentos;
 
-
 	if(diferenca > 0)
 	{
 		Assento *temporario;
-		for(int i = 0; i < diferenca + qtdeAssentos; i++)
+		for(int i = qtdeAssentos; i < novaQtde; i++)
 		{
 			temporario = new Assento(idFileira, i + 1);
 			listaAssentos.insere(temporario);

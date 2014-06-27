@@ -60,7 +60,8 @@ void ListaFileira::removeFileira(char id){
 
 
 }
-int ListaFileira::getQtdeAssentos(){
+
+/*int ListaFileira::getQtdeAssentos(){
 
 	No<Fileira>* temp = getCabeca();
 	int qtde = 0;
@@ -73,22 +74,7 @@ int ListaFileira::getQtdeAssentos(){
 	}
 
 	return qtde;
-}
+}*/
 
-
-int ListaFileira::getQtdeFileiras(){
-
-	No<Fileira>* temp = getCabeca();
-	int qtde = 0;
-
-	while(temp != NULL)
-	{
-		qtde++;
-
-		temp = temp->getProx();
-	}
-
-	return qtde;
-}
 ListaFileira::ListaFileira():Lista<Fileira>(){}
 ListaFileira::~ListaFileira(){}

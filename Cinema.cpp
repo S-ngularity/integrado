@@ -73,6 +73,7 @@ void Cinema::opcaoSala(){
 
 void Cinema::cadastrarSala(){
 	int numSala;
+	int capacidade;
 	int qtdeFileiras;
 	int qtdeAssentosFileira;
 	int opcao;
@@ -81,7 +82,10 @@ void Cinema::cadastrarSala(){
 	cout << "Informe o número da sala: " << endl;
 	cin >> numSala;
 
-	//Sala salaTemp(numSala);
+	cout << "Informe a capacidade da sala: " << endl;
+	cin >> capacidade;
+
+	//Sala salaTemp(numSala, capacidade);
 
 	do
 	{
@@ -105,7 +109,7 @@ void Cinema::cadastrarSala(){
 				cout << "Quantidade de assentos por fileira: " << endl;
 				cin >> qtdeAssentosFileira;
 				
-				//salaTemp.addFileirasComAssentos(qtdeFileiras, qtdeAssentosFileira); // catch(bad_alloc) ?
+				//salaTemp.addFileirasComAssentos(qtdeFileiras, qtdeAssentosFileira); // catch(bad_alloc) / catch(string s) do erro de exceder capacidade ?
 			break;
 
 			case 2:
@@ -122,7 +126,7 @@ void Cinema::cadastrarSala(){
 				cout << "Informe novo número de assentos: " << endl;
 				cin >> qtdeAssentosFileira;
 
-				//salaTemp.setQtdeAssentosNaFileira(idFileira, qtdeAssentosFileira)
+				//salaTemp.setQtdeAssentosNaFileira(idFileira, qtdeAssentosFileira); // catch(bad_alloc) / catch(string s) do erro de exceder capacidade ?
 			break;
 
 			case 4:
@@ -146,6 +150,7 @@ void Cinema::editarSala(){
 	int numSala;
 	//Sala *salaEscolhida;
 	int idFileira, qtdeAssentosFileira;
+	int novaCapacidade;
 
 	do{
 		//listarSalasExistentes();
@@ -161,10 +166,11 @@ void Cinema::editarSala(){
 			cout << endl;
 			cout << "1. Alterar número de assentos de uma fileira" << endl;
 			cout << "2. Excluir uma fileira" << endl;
-			cout << "3. Alterar a situação da sala" << endl;
-			cout << "4. Excluir sala" << endl;
-			cout << "5. Editar outra sala" << endl;
-			cout << "6. Voltar ao menu Sala" << endl;
+			cout << "3. Alterar capacidade da sala" << endl;
+			cout << "4. Alterar a situação da sala" << endl;
+			cout << "5. Excluir sala" << endl;
+			cout << "6. Editar outra sala" << endl;
+			cout << "7. Voltar ao menu Sala" << endl;
 			cout << "Escolha uma opcao ";
 			cin >> opcao;
 
@@ -178,7 +184,7 @@ void Cinema::editarSala(){
 					cout << "Informe novo número de assentos: " << endl;
 					cin >> qtdeAssentosFileira;
 
-					//salaEscolhida.setQtdeAssentosNaFileira(idFileira, qtdeAssentosFileira);
+					//salaEscolhida.setQtdeAssentosNaFileira(idFileira, qtdeAssentosFileira); // catch(bad_alloc) / catch(string s) do erro de exceder capacidade ?
 				break;
 
 				case 2:
@@ -189,6 +195,13 @@ void Cinema::editarSala(){
 				break;
 
 				case 3:
+					cout << "Informe nova capacidade: " << endl; // catch(string s) do erro de exceder capacidade ?
+					cin >> novaCapacidade;
+
+					//salaEscolhida.setCapacidade(novaCapacidade);
+				break;
+
+				case 4:
 					int opcSituacao;
 					//Situacao novaSituacao;
 
@@ -225,7 +238,7 @@ void Cinema::editarSala(){
 					//salaEscolhida.setSituacao(novaSituacao);
 				break;
 
-				case 4:
+				case 5:
 					if(confirmacao())
 					{
 						//listaSalas.remove(numSala);
@@ -236,18 +249,18 @@ void Cinema::editarSala(){
 						opcao = 0;
 				break;
 
-				case 5:
+				case 6:
 				break;
 
-				case 6:
+				case 7:
 				break;
 
 				default:
 					cout << "Opção inválida." << endl;
 			}
 			cout << endl;
-		}while(opcao != 4 && opcao != 5 && opcao != 6);
-	}while(opcao != 4 && opcao != 6);
+		}while(opcao != 5 && opcao != 6 && opcao != 7);
+	}while(opcao != 5 && opcao != 7);
 }
 
 void Cinema::opcaoSessao(){

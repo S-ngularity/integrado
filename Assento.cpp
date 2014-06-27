@@ -26,6 +26,8 @@ int Assento::getIdAssento()
 {
 	return idAssento;
 }
-char Assento::getIdFileira(){
+
+char Assento::getIdFileira()
+{
 	return idFileira;
 }

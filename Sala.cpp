@@ -1,9 +1,9 @@
 #include "Sala.h"
 
-Sala::Sala(int num) : listaFileiras()
+Sala::Sala(int num, int cap) : listaFileiras()
 {
 	numSala = num;
-	capacidade = 0;
+	capacidade = cap;
 	situacao = disponivel;
 }
 
@@ -27,7 +27,13 @@ int Sala::getCapacidade()
 
 void Sala::setCapacidade(int novaCap)
 {
-	capacidade = novaCap;
+	if(novaCap < totalAssentosAtual)
+	{
+		throw "Nova capacidade é menor do que quantidade de assentos. Remova assentos antes de alterar capacidade."
+	}
+
+	else
+		capacidade = novaCap;
 }
 
 Situacao Sala::getSituacao()
@@ -41,7 +47,7 @@ void Sala::setSituacao(Situacao alteracao)
 		situacao = alteracao;
 
 	else
-		throw "Situacao invalida";
+		throw "Situacao inválida.";
 }
 
 int Sala::getQtdFileiras()
@@ -53,19 +59,28 @@ void Sala::addFileirasComAssentos(int qtdeFileiras, int assentosPorFileira)
 {
 	Fileira *temp;
 
-	for(int i = 0; i < qtdeFileiras; i++)
+	if(totalAssentosAtual + qtdeFileiras * assentosPorFileira > getCapacidade())
 	{
-		temp = new Fileira('@' + getQtdFileiras() + 1, assentosPorFileira);
-
-		listaFileiras.insere(temp);
+		throw "Essa operação excede a capacidade da sala."
 	}
 
-	setCapacidade(getCapacidade() + qtdeFileiras * assentosPorFileira);
+	else
+	{
+		for(int i = 0; i < qtdeFileiras; i++)
+		{
+			temp = new Fileira('@' + getQtdFileiras() + 1, assentosPorFileira);
+
+			listaFileiras.insere(temp);
+		}
+
+		totalAssentosAtual += qtdeFileiras * assentosPorFileira;
+	}
 }
 
 void Sala::removeFileira(char fileira)
 {
 
+	// atualizar total assentos
 }
 
 int Sala::getQtdAssentosNaFileira(char fileira)
@@ -75,9 +90,13 @@ int Sala::getQtdAssentosNaFileira(char fileira)
 
 void Sala::setQtdeAssentosNaFileira(char fileira, int novaQtde)
 {
-	listaFileiras.busca(fileira)->setQtdeAssentos(novaQtde);
-	//Se quiser atualizar Capacidade, descomenta abaixo:
-	//capacidade = listaFileiras.getQtdeAssentos();
+	if(totalAssentosAtual - listaFileiras.busca(fileira)->getQtdeAssentos() + novaQtde > capacidade)
+	{
+		throw "Essa operação excede a capacidade da sala."
+	}
+
+	else
+		listaFileiras.busca(fileira)->setQtdeAssentos(novaQtde);
 }
 
 bool Sala::verificaDispAssento(char fileira, int assento)
