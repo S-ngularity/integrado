@@ -12,7 +12,6 @@ public:
 	~ListaAssento();
 
 	Assento *busca(int id);
-	int getQtdeAssentos();
 };
 
 #endif

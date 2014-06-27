@@ -44,7 +44,6 @@ class No{
 
 
 };
-
 template <class Tipo>
 class Lista{
 
@@ -58,6 +57,9 @@ class Lista{
 	public:
 		No<Tipo> * getCabeca(){
 			return Lista::cabeca;
+		}
+		void setCabeca(No<Tipo> * no){
+			Lista::cabeca = no;
 		}
 
 		void insere(Tipo *elemento){
@@ -78,6 +80,8 @@ class Lista{
 	void remove(){
 		No<Tipo>* temp = Lista<Tipo>::cabeca;
 
+
+
 		if(temp == NULL)
 			throw "Impossível remover, lista Vazia!";
 
@@ -87,7 +91,6 @@ class Lista{
 			Lista::cabeca = NULL;
 			return;
 		}
-
 		while(temp->getProx()->getProx() != NULL)
 			temp = temp->getProx();
 

@@ -14,18 +14,5 @@ Fileira *ListaFileira::busca(char id){
 	throw "Fileira nao encontrada";
 }
 
-int ListaAssento::getQtdeFileiras(){
-	int qtde = 0;
-	No<Assento>* temp = getCabeca();
-
-	while(temp != NULL)
-	{
-		qtde++;
-		temp = temp->getProx();
-	}
-
-	return qtde;
-}
-
 ListaFileira::ListaFileira():Lista<Fileira>(){}
 ListaFileira::~ListaFileira(){}

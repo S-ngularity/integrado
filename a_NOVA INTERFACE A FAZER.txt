@@ -4,43 +4,41 @@
 		"Informe número da sala" (uma vez)
 			>cria sala temporaria
 
-		>imprime sala
+		>imprime sala (e reimprime a cada mudança)
 
-		"Adicionar fileira(s)"
-			"Quantidade de fileiras:"
-			"Quantidade de assentos por fileira"
+			"Adicionar fileira(s)"
+				"Quantidade de fileiras:"
+				"Quantidade de assentos por fileira"
 
-			>for insere fileiras
-				>for insere assentos
+			"Excluir fileira da sala"
+				>pede letra e exclui
+				>clear screen e reexibe sala
 
-			setCapacidade(getCapacidade + assentos*fileiras)
+			"Alterar número de assentos da fileira"
+				>pede letra e muda qtd
 
-		"Excluir fileira da sala"
-			>pede letra e exclui
-			>clear screen e reexibe sala
-
-		"Alterar número de assentos da fileira"
-			>pede letra e muda qtd
-
-		"Confirmar"
+			"Confirmar"
 
 	"2. Editar Sala"
-	 >mostra sala com todas as fileiras e assentos
+		>Lista salas existentes
+		"Informe o número da sala"
 
-		"Listar Salas Existentes"
-		
-		"Excluir fileira da sala"
-			>pede letra e exclui
-			>clear screen e reexibe sala
+			>imprime sala (e reimprime a cada mudança)
 
-		"Alterar número de assentos da fileira"
-			>pede letra e muda qtd
+			"Alterar número de assentos da fileira"
+				>pede letra e nova qtd, muda qtd
 
-		"Alterar a Situacao da Sala"
+			"Excluir fileira da sala"
+				>pede letra e exclui
 
-		"Excluir Sala"
+			"Alterar a Situacao da Sala"
+				>pede nova situação
 
-		"Voltar ao menu Sala"
+			"Excluir Sala"
+
+			"Editar outra sala"
+
+			"Voltar ao menu Sala"
 
 	"3. Voltar ao Menu Principal
 

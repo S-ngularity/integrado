@@ -46,7 +46,7 @@ void Sala::setSituacao(Situacao alteracao)
 
 int Sala::getQtdFileiras()
 {
-	listaFileiras.getQtdeFileiras();
+	listaFileiras.qtdeElementos();
 }
 
 void Sala::addFileirasComAssentos(int qtdeFileiras, int assentosPorFileira)

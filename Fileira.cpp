@@ -34,7 +34,7 @@ char Fileira::getIdFileira(){
 
 int Fileira::getQtdeAssentos()
 {
-	listaAssentos.getQtdeAssentos();
+	listaAssentos.qtdeElementos();
 }
 
 void Fileira::setQtdeAssentos(int novaQtde){
