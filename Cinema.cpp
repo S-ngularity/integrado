@@ -10,6 +10,7 @@ void Cinema::telaInicial(){
 	int opcao;
 
 	do{
+		clearScreen();
 		cout << endl;
 		cout << "1. Gerenciar salas" << endl;
 		cout << "2. Gerenciar sessões" << endl;
@@ -44,6 +45,7 @@ void Cinema::opcaoSala(){
 	int opcao;
 
 	do{
+		clearScreen();
 		cout << endl;
 		cout << "1. Cadastrar sala" << endl;
 		cout << "2. Editar sala" << endl;
@@ -79,6 +81,8 @@ void Cinema::cadastrarSala(){
 	int opcao;
 	char idFileira;
 
+	clearScreen();
+
 	cout << "Informe o número da sala: " << endl;
 	cin >> numSala;
 
@@ -90,6 +94,7 @@ void Cinema::cadastrarSala(){
 
 	do
 	{
+		clearScreen();
 		//clear e imprime sala, opções em baixo
 
 		cout << endl;
@@ -105,6 +110,7 @@ void Cinema::cadastrarSala(){
 		switch(opcao)
 		{
 			case 1:
+				clearScreen();
 				cout << "Quantidade de fileiras: ";
 				cin >> qtdeFileiras;
 
@@ -115,6 +121,7 @@ void Cinema::cadastrarSala(){
 			break;
 
 			case 2:
+				clearScreen();
 				cout << "Informe fileira: " << endl;
 				cin >> idFileira;
 
@@ -122,6 +129,7 @@ void Cinema::cadastrarSala(){
 			break;
 
 			case 3:
+				clearScreen();
 				cout << "Informe fileira: "<< endl;
 				cin >> idFileira;
 
@@ -154,6 +162,7 @@ void Cinema::editarSala(){
 	int novaCapacidade;
 
 	do{
+		clearScreen();
 		//listarSalasExistentes();
 
 		cout << "Informe o número da sala: " << endl;
@@ -162,6 +171,7 @@ void Cinema::editarSala(){
 		//salaEscolhida = listaSalas.busca(numSala);
 
 		do{
+			clearScreen();
 			//clear e imprime sala, opções em baixo
 
 			cout << endl;
@@ -179,6 +189,7 @@ void Cinema::editarSala(){
 
 			switch(opcao){
 				case 1:
+					clearScreen();
 					cout << "Informe fileira: "<< endl;
 					cin >> idFileira;
 
@@ -189,6 +200,7 @@ void Cinema::editarSala(){
 				break;
 
 				case 2:
+					clearScreen();
 					cout << "Informe fileira: "<< endl;
 					cin >> idFileira;
 
@@ -196,6 +208,7 @@ void Cinema::editarSala(){
 				break;
 
 				case 3:
+					clearScreen();
 					cout << "Informe nova capacidade: " << endl; // catch(string s) do erro de exceder capacidade ?
 					cin >> novaCapacidade;
 
@@ -203,6 +216,7 @@ void Cinema::editarSala(){
 				break;
 
 				case 4:
+					clearScreen();
 					int opcSituacao;
 					//Situacao novaSituacao;
 
@@ -240,6 +254,7 @@ void Cinema::editarSala(){
 				break;
 
 				case 5:
+					clearScreen();
 					if(confirmacao())
 					{
 						//listaSalas.remove(numSala);
@@ -266,9 +281,9 @@ void Cinema::editarSala(){
 
 void Cinema::opcaoSessao(){
 	int opcao;
-	//Sessao *novaSessao;
 
 	do{
+		clearScreen();
 		cout << endl;
 		cout << "1. Listar sessões existentes" << endl;
 		cout << "2. Cadastrar sessão" << endl;
@@ -308,6 +323,8 @@ void Cinema::cadastrarSessao(){
 	//Horario hInicio, hFim;
 	string filme;
 
+	clearScreen();
+
 	cout << "Informe o nome do filme ";
 	cin >> filme;
 
@@ -324,7 +341,7 @@ void Cinema::cadastrarSessao(){
 
 	// confirmar se sala escolhida tem período disponível, se não mostrar erro // HARD MODE (dica no txt da interface)
 
-	//novaSessao = new Sessao(filme, hInicio, hFim, *listaSalas.busca(numSala));
+	//novaSessao = new Sessao(filme, hInicio, hFim, listaSalas.busca(numSala));
 
 	//listaSessoes.insere(novaSessao);
 }
@@ -332,6 +349,8 @@ void Cinema::cadastrarSessao(){
 void Cinema::excluirSessao()
 {
 	int codSessao;
+
+	clearScreen();
 
 	//listarSessoesExistentes();
 
@@ -345,6 +364,7 @@ void Cinema::venderIngresso(){
 	int opcao;
 
 	do{
+		clearScreen();
 		//listarSessoesExistentes();
 
 		cout << "1. Iniciar nova venda: " << endl;
@@ -378,6 +398,7 @@ void Cinema::novaVenda(){
 	//novaVenda = new Venda();
 
 	do{
+		clearScreen();
 		//listarSessoesExistentes();
 		//novaVenda.listarIngressos();
 		//cout << Valor total: R$ << novaVenda.calcularValorTotal() << endl;
@@ -392,6 +413,7 @@ void Cinema::novaVenda(){
 
 		switch(opcao){
 			case 1:
+				clearScreen();
 				cout << "Informe numero da sessão desejada" << endl;
 				cin >> numSessao;
 
@@ -401,6 +423,7 @@ void Cinema::novaVenda(){
 			break;
 
 			case 2:
+				clearScreen();
 				cout << "Remover ingresso número: " << endl; // seleciona da lista de ingressos impressa ali em cima
 				//cin << 
 				//listaIngressos.remove(___);
@@ -445,4 +468,9 @@ bool Cinema::confirmacao(){
 		else
 			cout << "Entrada inválida!" << endl;
 	}while(1);
+}
+
+void Cinema::clearScreen()
+{
+	cout << string( 100, '\n' );
 }

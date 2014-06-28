@@ -1,6 +1,6 @@
 #include "Sessao.h"
 
-Sessao::Sessao(string filme, Horario hI, Horario hF, Sala sal) : horarioInicio(hI), horarioFim(hF), sala(sal)
+Sessao::Sessao(string filme, Horario hI, Horario hF, Sala *sal) : horarioInicio(hI), horarioFim(hF), sala(sal)
 {
 	if(sala->getSituacao() != disponivel)
 		throw "Sala indisponivel";

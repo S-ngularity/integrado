@@ -18,7 +18,7 @@ private:
 	Sala *sala;
 
 public:
-	Sessao(string filme, Horario hI, Horario hF, Sala sal);
+	Sessao(string filme, Horario hI, Horario hF, Sala *sal);
 	~Sessao();
 
 	int getCodSessao();
