@@ -27,6 +27,8 @@ public:
 
 	char getIdFileira();
 	void setIdFileira(char id);
+
+	//void renameAll(int id);
 };
 
 #endif
