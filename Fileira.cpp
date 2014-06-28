@@ -58,11 +58,10 @@ void Fileira::setQtdeAssentos(int novaQtde){
 	if(diferenca > 0)
 	{
 		Assento *temporario;
-		for(int i = 1; i <= diferenca; i++)
+		for(int i = 0; i < diferenca; i++)
 		{
 			temporario = new Assento(idFileira, i + 1);
 			listaAssentos.insere(temporario);
-			listaAssentos.renameAll();
 		}
 	}
 
@@ -76,11 +75,6 @@ void Fileira::setQtdeAssentos(int novaQtde){
 
 	qtdeAssentos = novaQtde;
 }
-
-/*void Fileira::renameAll(int id)
-{
-	listaAssentos.renameAll(id);
-}*/
 
 ostream &operator<<(ostream &o, Fileira &f){
 	o << setw(2) << "-" << f.idFileira << "- ";

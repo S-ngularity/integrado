@@ -60,11 +60,7 @@ void ListaIngresso::removeIngresso(int cod){
 
 Ingresso *ListaIngresso::getPrimeiro()
 {
-	if(getCabeca() != NULL)
-		return getCabeca()->getElemto();
-
-	else
-		return NULL;
+	return getCabeca()->getElemto();
 }
 
 double ListaIngresso::getValorTotal()

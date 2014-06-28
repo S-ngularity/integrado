@@ -34,11 +34,6 @@ int Assento::getIdAssento()
 	return idAssento;
 }
 
-void Assento::setIdAssento(int id)
-{
-	idAssento = id;
-}
-
 char Assento::getIdFileira()
 {
 	return idFileira;

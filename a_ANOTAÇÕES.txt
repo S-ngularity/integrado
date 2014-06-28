@@ -1,1 +1,4 @@
-﻿g++ main.cpp Cinema.cpp Assento.cpp Data.cpp Fileira.cpp Horario.cpp Ingresso.cpp Lista.cpp ListaAssento.cpp ListaFileira.cpp ListaIngresso.cpp ListaSala.cpp ListaSessao.cpp ListaVenda.cpp Sala.cpp Sessao.cpp Venda.cpp -o ITSTHEFINALCOUNTDOWN
+g++ main.cpp Cinema.cpp Assento.cpp Data.cpp Fileira.cpp Horario.cpp Ingresso.cpp Lista.cpp ListaAssento.cpp ListaFileira.cpp ListaIngresso.cpp ListaSala.cpp ListaSessao.cpp ListaVenda.cpp Sala.cpp Sessao.cpp Venda.cpp -o ITSTHEFINALCOUNTDOWN
+
+
+Aumentar número de assentos no menu edição faz começar do 1 a nova contagem. Provavelmente no menu de criação também.

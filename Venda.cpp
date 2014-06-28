@@ -16,14 +16,9 @@ Venda::~Venda()
 
 	temp = listaIngressos.getPrimeiro();
 
-	while(temp != NULL)
-	{
-		sessao->desocuparAssento(temp->getIdFileira(), temp->getIdAssento());
+	sessao->desocuparAssento(temp->getIdFileira(), temp->getIdAssento());
 
-		listaIngressos.removeIngresso(temp->getCodIngresso());
-
-		temp = listaIngressos.getPrimeiro();
-	}
+	listaIngressos.removeIngresso(temp->getCodIngresso());
 }
 
 int Venda::getCodVenda()

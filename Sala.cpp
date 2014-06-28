@@ -110,8 +110,6 @@ void Sala::addFileirasComAssentos(int qtdeFileiras, int assentosPorFileira)
 		}
 
 		totalAssentosAtual += qtdeFileiras * assentosPorFileira;
-
-		//listaFileiras.renameAllAssentos();
 	}
 }
 
@@ -119,7 +117,6 @@ void Sala::removeFileira(char fileira)
 {
 	listaFileiras.removeFileira(fileira);
 	totalAssentosAtual = listaFileiras.getQtdeAssentos();
-	//listaFileiras.renameAllAssentos();
 }
 
 int Sala::getQtdAssentosNaFileira(char fileira)
@@ -138,7 +135,6 @@ void Sala::setQtdeAssentosNaFileira(char fileira, int novaQtde)
 	{
 		totalAssentosAtual = totalAssentosAtual - listaFileiras.busca(fileira)->getQtdeAssentos() + novaQtde;
 		listaFileiras.busca(fileira)->setQtdeAssentos(novaQtde);
-		//listaFileiras.renameAllAssentos();
 	}
 }
 

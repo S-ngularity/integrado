@@ -14,9 +14,6 @@ public:
 
 	Assento *busca(int id);
 
-	void renameAll();
-	//void renameAll(int id);
-
 	void imprimeListaAssentos();
 	
 	void operator=(ListaAssento& l);

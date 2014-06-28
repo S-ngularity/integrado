@@ -50,21 +50,6 @@ Fileira *ListaFileira::busca(char id){
 	throw "Fileira não encontrada";
 }
 
-/*void ListaFileira::renameAllAssentos()
-{
-	No<Fileira>* temp = getCabeca();
-
-	int id = 1;
-
-	while(temp != NULL)
-	{
-		temp->getElemto()->renameAll(id);
-		id += temp->getElemto()->getQtdeAssentos();
-
-		temp = temp->getProx();
-	}
-}*/
-
 void ListaFileira::removeFileira(char id){
 
 	No<Fileira>* temp = getCabeca();

@@ -19,8 +19,6 @@ public:
 	Assento(Assento &a);
 
 	int getIdAssento();
-	void setIdAssento(int id);
-
 	char getIdFileira();
 
 	bool verificaDisponibilidade();
