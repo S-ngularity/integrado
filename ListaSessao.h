@@ -3,6 +3,7 @@
 
 #include "Sessao.h"
 #include "Lista.h"
+#include "Horario.h"
 
 class ListaSessao: public Lista<Sessao>{
 
@@ -16,6 +17,9 @@ class ListaSessao: public Lista<Sessao>{
 		Sessao * busca (int id);// retorna sessao
 		void removeSessao(int id); // remove sessao com id do parametro
 		void insereOrdenado(Sessao *s);
+
+		void imprimirTodas();
+		void imprimirDisponiveis();
 
 		//-------------Construtor e Destrutor--------------------
 

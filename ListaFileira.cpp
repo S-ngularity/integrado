@@ -1,5 +1,26 @@
 #include "ListaFileira.h"
 
+ListaFileira::ListaFileira():Lista<Fileira>(){}
+
+ListaFileira::ListaFileira(ListaFileira &l)
+{
+	No<Fileira>* temp = l.getCabeca();
+	Fileira *a;
+
+	while(getCabeca() != NULL)
+		remove();
+
+	while(temp != NULL)
+	{
+		a = new Fileira(*(temp->getElemto()));
+		insere(a);
+
+		temp = temp->getProx();
+	}
+}
+
+ListaFileira::~ListaFileira(){}
+
 void ListaFileira::renameAll()
 {
 	No<Fileira>* temp = getCabeca();
@@ -26,7 +47,7 @@ Fileira *ListaFileira::busca(char id){
 		temp = temp->getProx();
 	}
 
-	throw "Fileira nao encontrada";
+	throw "Fileira não encontrada";
 }
 
 void ListaFileira::removeFileira(char id){
@@ -36,7 +57,7 @@ void ListaFileira::removeFileira(char id){
 
 	if(temp == NULL)
 	{
-		throw "Lista Vazia , impossivel remover";
+		throw "Lista vazia , impossível remover";
 	}
 
 	//Caso de remover quando só tem um elemento
@@ -50,7 +71,7 @@ void ListaFileira::removeFileira(char id){
 			return;
 		}
 		else
-			throw "Elemento nao encontrado";
+			throw "Fileira não encontrada.";
 
 	}
 
@@ -80,7 +101,12 @@ void ListaFileira::removeFileira(char id){
 		temp = temp->getProx();
 	}
 
-	throw "Elemento nao encontrado";
+	throw "Fileira não encontrada.";
+}
+
+int ListaFileira::getQtdeFileiras()
+{
+	return qtdeElementos();
 }
 
 int ListaFileira::getQtdeAssentos(){
@@ -98,5 +124,13 @@ int ListaFileira::getQtdeAssentos(){
 	return qtde;
 }
 
-ListaFileira::ListaFileira():Lista<Fileira>(){}
-ListaFileira::~ListaFileira(){}
+void ListaFileira::imprimirListaFileira(){
+	No<Fileira>* temp = getCabeca();
+
+	while(temp != NULL)
+	{
+		cout << *((*temp).getElemto()) << endl;
+
+		temp = temp->getProx();
+	}
+}

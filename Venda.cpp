@@ -1,8 +1,24 @@
 #include "venda.h"
 
-Venda::Venda() //Definir parametros //se necessario, adicionar destrutor
-{
+int Venda::codAtual = 1;
 
+Venda::Venda(Sessao &s) : dtVenda()
+{
+	sessao = &s;
+
+	codVenda = codAtual;
+	codAtual++;
+}
+
+Venda::~Venda()
+{
+	Ingresso *temp;
+
+	temp = listaIngressos.getPrimeiro();
+
+	sessao->desocuparAssento(temp->getIdFileira(), temp->getIdAssento());
+
+	listaIngressos.removeIngresso(temp->getCodIngresso());
 }
 
 int Venda::getCodVenda()
@@ -10,27 +26,35 @@ int Venda::getCodVenda()
 	return codVenda;
 }
 
-void Venda::setCodVenda(int novoCod)
+double Venda::calcularValorTotal()
 {
-	codVenda = novoCod;
+	return listaIngressos.getValorTotal();
 }
 
-float Venda::calcularValorTotal()
+void Venda::emitirIngresso()
 {
-
+	sessao->setNumVendido(listaIngressos.qtdeElementos());
 }
 
-void Venda::emitirIngresso(array ingresso) //verificar como e que vai usar esse array parametro
+void Venda::addIngresso(Ingresso &ingresso)
 {
+	sessao->ocuparAssento(ingresso.getIdFileira(), ingresso.getIdAssento());
 
+	listaIngressos.insere(&ingresso);
 }
 
-void Venda::addIngresso(Ingresso ingresso) //verificar se vai usar referencia ou assim mesmo
+void Venda::removeIngresso(int cod)
 {
+	Ingresso *temp;
 
+	temp = listaIngressos.busca(cod);
+
+	sessao->desocuparAssento(temp->getIdFileira(), temp->getIdAssento());
+
+	listaIngressos.removeIngresso(cod);
 }
 
-void Venda::removeIngresso(Ingresso ingresso) //o mesmo de add
+void Venda::listarIngressos()
 {
-
+	listaIngressos.imprimirTodos();
 }

@@ -9,7 +9,11 @@ typedef enum {disponivel = 0, manuEquipamento, reforma, manuGeral} Situacao;
 
 class Sala
 {
+	friend ostream &operator<<(ostream &o, Sala &s);
+
 private:
+	static const string stringSituacao[4];
+
 	Situacao situacao;
 	int numSala;
 	int capacidade;
@@ -19,6 +23,7 @@ private:
 
 public:
 	Sala(int num, int cap);
+	Sala(Sala &s);
 	~Sala();
 
 	int getNumSala();
@@ -27,7 +32,10 @@ public:
 	int getCapacidade();
 	void setCapacidade(int novaCap);
 
+	int getTotalAssentos();
+
 	Situacao getSituacao();
+	string getStringSituacao();
 	void setSituacao(Situacao alteracao);
 
 	int getQtdFileiras();

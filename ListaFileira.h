@@ -12,12 +12,16 @@ private:
 
 public:
 	ListaFileira();
+	ListaFileira(ListaFileira &l);
 	~ListaFileira();
 
 	Fileira *busca(char id);
 	
 	void removeFileira(char id);
+	int getQtdeFileiras();
 	int getQtdeAssentos();
+
+	void imprimirListaFileira();
 };
 
 #endif

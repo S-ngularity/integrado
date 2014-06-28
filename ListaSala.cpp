@@ -10,7 +10,7 @@ Sala *ListaSala::busca(int num){
 		temp = temp->getProx();
 	}
 
-	throw "Elemento nao encontrado";
+	throw "Sala não encontrada.";
 }
 
 void ListaSala::removerSala(int num){
@@ -19,7 +19,7 @@ void ListaSala::removerSala(int num){
 
 	if(temp == NULL)
 	{
-		throw "Lista Vazia , impossivel remover";
+		throw "Lista vazia, impossível remover";
 	}
 	//Caso de remover quando só tem um elemento
 	if(temp->getProx() == NULL)
@@ -30,7 +30,7 @@ void ListaSala::removerSala(int num){
 			return;
 		}
 		else
-			throw "Elemento nao encontrado";
+			throw "Sala não encontrada.";
 
 	}
 	if(temp->getElemto()->getNumSala() == num)
@@ -54,8 +54,19 @@ void ListaSala::removerSala(int num){
 		temp = temp->getProx();
 	}
 
-	throw "Elemento nao encontrado";
+	throw "Sala não encontrada.";
 
 }
 
-ListaSala::ListaSala():Lista(){}
+void ListaSala::imprimirListaSala()
+{
+	No<Sala>* temp = getCabeca();
+
+	while(temp != NULL)
+	{
+		cout << endl << "Sala " << temp->getElemto()->getNumSala() << " -- Capacidade: " << temp->getElemto()->getCapacidade() <<
+		 " -- Total de assentos: " << temp->getElemto()->getTotalAssentos() << " -- Situação: " << temp->getElemto()->getStringSituacao() << endl << endl;
+
+		temp = temp->getProx();
+	}
+}

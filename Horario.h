@@ -5,6 +5,9 @@
 
 class Horario: public Data{
 
+friend ostream &operator<<(ostream &o, Horario &h); //sobrecarga out
+friend istream &operator>> (istream &i, Horario &h); //sobrecarga in
+
 
 //---------Atributos----------------------------------
 	private:
@@ -16,7 +19,6 @@ class Horario: public Data{
 		void setHora(int hora);
 		int getMinuto();
 		void setMinuto(int minuto);
-		void imprime(); //imprime horario no formato h:m
 		void imprimeComData();//imprime Data e horario no formato d/m/a h:m
 
 //----------Construtores e Destrutores--------------------------------

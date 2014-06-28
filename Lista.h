@@ -123,20 +123,20 @@ public:
 
 
 //-----------------Construtor e Destrutor------------------------------
-	public:
+public:
 
-		Lista()
-		{
-			Lista::cabeca = NULL;
-		}
+	Lista()
+	{
+		Lista::cabeca = NULL;
+	}
 
-		~Lista()
+	~Lista()
+	{
+		while(Lista::cabeca != NULL)
 		{
-			while(Lista::cabeca != NULL)
-			{
-				Lista::remove();
-			}
+			Lista::remove();
 		}
+	}
 };
 
 #endif

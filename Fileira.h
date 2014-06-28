@@ -5,12 +5,16 @@
 
 class Fileira
 {
+
+friend ostream &operator<<(ostream &o, Fileira &f);
+
 private:
 	int qtdeAssentos;
 	char idFileira;
 	ListaAssento listaAssentos;
 public:
 	Fileira(char id, int qtdAssentosFileira);
+	Fileira(Fileira &f);
 	~Fileira();
 
 	bool verificaDispAssento(int assento);

@@ -35,9 +35,7 @@ void Data::setAno(int ano){
 	else
 		throw "Ano invalido";
 }
-void Data::imprime(){
-	cout << setw(2) << setfill('0') << dia << "/" << setw(2) << setfill('0') << mes << "/" << ano;
-}
+
 
 Data::Data(int dia, int mes, int ano)
 {
@@ -55,4 +53,28 @@ Data::Data(){
 	dia = local->tm_mday;
 	mes = local->tm_mon + 1;
 	ano = local->tm_year + 1900;
+}
+
+ostream &operator<<(ostream &o, Data &d){
+	o << setw(2) << setfill('0') << d.dia << "/" << setw(2) << setfill('0') << d.mes << "/" << d.ano;
+}
+
+//sobrecarga do operador >>
+istream &operator>> (istream &i, Data &d) {
+	do{
+		i >> d.dia;
+		i.ignore(); // pula 1, no caso /
+		i >> d.mes;
+		i.ignore(); // pula 1, no caso /
+		i >> d.ano;
+
+		if(d.mes <= 0 || d.mes > 12)
+			cout << "Mês Inválido, digite uma data válida!" <<endl;
+
+		if(d.dia <= 0 || d.dia > 31)
+			cout << "Dia inválido, digite uma data válida!" <<endl;
+
+	}while(d.mes <= 0 || d.mes > 12 || d.dia <= 0 || d.dia > 31);
+	
+	return i;
 }

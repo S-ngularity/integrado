@@ -8,6 +8,9 @@ using namespace std;
 
 class Data{
 
+	friend ostream &operator<<(ostream &o, Data &d); //sobrecarga out
+	friend istream &operator>> (istream &i, Data &d); //sobrecarga in
+
 //---------Atributos----------------------------------
 	private:
 		int dia, mes, ano;
@@ -24,7 +27,6 @@ class Data{
 		int getAno();
 		void setAno(int ano);
 
-		virtual void imprime();//imprime data no formato d/m/a
 
 //----------Construtores e Destrutores--------------------------------
 

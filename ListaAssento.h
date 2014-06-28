@@ -9,9 +9,14 @@ class ListaAssento: public Lista<Assento>
 {
 public:
 	ListaAssento();
+	ListaAssento(ListaAssento &);
 	~ListaAssento();
 
 	Assento *busca(int id);
+
+	void imprimeListaAssentos();
+	
+	void operator=(ListaAssento& l);
 };
 
 #endif

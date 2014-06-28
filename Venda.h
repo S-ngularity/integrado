@@ -7,21 +7,28 @@
 class Venda
 {
 private:
+	static int codAtual;
+
 	int codVenda;
 	Horario dtVenda;
-	float valorTotal;
+	Sessao *sessao;
 	ListaIngresso listaIngressos;
 
 public:
-	Venda(); //Definir parametros //se necessario, adicionar destrutor
+	Venda(Sessao &s);
+	~Venda();
 
 	int getCodVenda();
-	void setCodVenda(int novoCod);
 
-	float calcularValorTotal();
-	//void emitirIngresso(array ingresso); verificar como e que vai usar esse array parametro
-	void addIngresso(Ingresso ingresso);//verificar se vai usar referencia ou assim mesmo
-	void removeIngresso(Ingresso ingresso); //o mesmo de add
+	double calcularValorTotal();
+
+	void emitirIngresso();
+
+	void addIngresso(Ingresso &ingresso);
+	void removeIngresso(int cod);
+	void removeTodosIngressos();
+
+	void listarIngressos();
 };
 
 #endif

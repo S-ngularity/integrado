@@ -4,18 +4,13 @@
 #include "Lista.h"
 #include "Sala.h"
 
-class ListaSala: public Lista<Sala>{
+class ListaSala: public Lista<Sala>
+{
+public:
+	Sala *busca(int num);
+	void removerSala(int num);
 
-//--------------Metodos---------------------------------
-
-	public:
-		Sala *busca(int num);
-		void removerSala(int num);
-
-//-------------Construtor e Destrutor--------------------
-
-	public:
-		ListaSala();
-
+	void imprimirListaSala();
 };
+
 #endif

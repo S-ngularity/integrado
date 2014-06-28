@@ -1,10 +1,22 @@
 #include "Sala.h"
+#include <iomanip>
+
+const string Sala::stringSituacao[4] = {"disponivel", "manutenção de equipamento", "reforma", "manutenção geral"};
 
 Sala::Sala(int num, int cap) : listaFileiras()
 {
 	numSala = num;
 	capacidade = cap;
 	situacao = disponivel;
+	totalAssentosAtual = 0;
+}
+
+Sala::Sala(Sala &s) : listaFileiras(s.listaFileiras)
+{
+	situacao = s.situacao;
+	numSala = s.numSala;
+	capacidade = s.capacidade;
+	totalAssentosAtual = s.totalAssentosAtual;
 }
 
 Sala::~Sala(){}
@@ -36,14 +48,38 @@ void Sala::setCapacidade(int novaCap)
 		capacidade = novaCap;
 }
 
+int Sala::getTotalAssentos()
+{
+	return totalAssentosAtual;
+}
+
 Situacao Sala::getSituacao()
 {
 	return situacao;
 }
 
+string Sala::getStringSituacao()
+{
+	Situacao temp;
+	temp = getSituacao();
+	switch(temp){
+		case 0:
+			return stringSituacao[0];
+
+		case 1:
+			return stringSituacao[1];
+
+		case 2: 
+			return stringSituacao[2];
+
+		case 3:
+			return stringSituacao[3];
+	}
+}
+
 void Sala::setSituacao(Situacao alteracao)
 {
-	if(alteracao >= 0 && alteracao < 4)
+	if(alteracao >= 0 && alteracao <= 3)
 		situacao = alteracao;
 
 	else
@@ -52,7 +88,7 @@ void Sala::setSituacao(Situacao alteracao)
 
 int Sala::getQtdFileiras()
 {
-	listaFileiras.qtdeElementos();
+	return listaFileiras.qtdeElementos();
 }
 
 void Sala::addFileirasComAssentos(int qtdeFileiras, int assentosPorFileira)
@@ -85,7 +121,7 @@ void Sala::removeFileira(char fileira)
 
 int Sala::getQtdAssentosNaFileira(char fileira)
 {
-	listaFileiras.busca(fileira)->getQtdeAssentos();
+	return listaFileiras.busca(fileira)->getQtdeAssentos();
 }
 
 void Sala::setQtdeAssentosNaFileira(char fileira, int novaQtde)
@@ -96,12 +132,15 @@ void Sala::setQtdeAssentosNaFileira(char fileira, int novaQtde)
 	}
 
 	else
+	{
+		totalAssentosAtual = totalAssentosAtual - listaFileiras.busca(fileira)->getQtdeAssentos() + novaQtde;
 		listaFileiras.busca(fileira)->setQtdeAssentos(novaQtde);
+	}
 }
 
 bool Sala::verificaDispAssento(char fileira, int assento)
 {
-	listaFileiras.busca(fileira)->verificaDispAssento(assento);
+	return listaFileiras.busca(fileira)->verificaDispAssento(assento);
 }
 
 void Sala::ocuparAssento(char fileira, int assento)
@@ -112,4 +151,11 @@ void Sala::ocuparAssento(char fileira, int assento)
 void Sala::desocuparAssento(char fileira, int assento)
 {
 	listaFileiras.busca(fileira)->desocuparAssento(assento);
+}
+
+ostream &operator<<(ostream &o, Sala &s){
+	s.listaFileiras.imprimirListaFileira();
+	o << endl << "Sala" << s.numSala << " -- Capacidade: " << s.capacidade << " -- Total de assentos: " << s.totalAssentosAtual << " -- Situação: " << s.getStringSituacao() << endl; //setw(6)
+
+	return o;
 }

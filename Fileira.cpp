@@ -1,4 +1,7 @@
 #include "Fileira.h"
+#include <iostream>
+#include <iomanip> //setw()
+using namespace std;
 
 Fileira::Fileira(char id, int qtdAssentosFileira): idFileira(id), qtdeAssentos(qtdAssentosFileira)
 {
@@ -9,6 +12,12 @@ Fileira::Fileira(char id, int qtdAssentosFileira): idFileira(id), qtdeAssentos(q
 		temporario = new Assento(idFileira, i + 1);
 		listaAssentos.insere(temporario);
 	}
+}
+
+Fileira::Fileira(Fileira &f) : listaAssentos(f.listaAssentos)
+{
+	qtdeAssentos = f.qtdeAssentos;
+	idFileira = f.idFileira;
 }
 
 Fileira::~Fileira(){}
@@ -40,7 +49,7 @@ void Fileira::setIdFileira(char id)
 
 int Fileira::getQtdeAssentos()
 {
-	listaAssentos.qtdeElementos();
+	return listaAssentos.qtdeElementos();
 }
 
 void Fileira::setQtdeAssentos(int novaQtde){
@@ -49,7 +58,7 @@ void Fileira::setQtdeAssentos(int novaQtde){
 	if(diferenca > 0)
 	{
 		Assento *temporario;
-		for(int i = qtdeAssentos; i < novaQtde; i++)
+		for(int i = 0; i < diferenca; i++)
 		{
 			temporario = new Assento(idFileira, i + 1);
 			listaAssentos.insere(temporario);
@@ -65,4 +74,11 @@ void Fileira::setQtdeAssentos(int novaQtde){
 	}
 
 	qtdeAssentos = novaQtde;
+}
+
+ostream &operator<<(ostream &o, Fileira &f){
+	o << setw(2) << "-" << f.idFileira << "- ";
+	f.listaAssentos.imprimeListaAssentos();
+	cout << endl;
+	return o;
 }

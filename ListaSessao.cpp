@@ -1,4 +1,5 @@
 #include "ListaSessao.h"
+#include <iomanip>
 
 Sessao * ListaSessao::busca (int id){
 	No<Sessao>* temp = getCabeca();
@@ -12,6 +13,7 @@ Sessao * ListaSessao::busca (int id){
 
 	throw "Sessao nao encontrada";
 }
+
 void ListaSessao::removeSessao(int id){
 	No<Sessao>* temp = getCabeca();
 	No<Sessao>* excluido;
@@ -54,9 +56,9 @@ void ListaSessao::removeSessao(int id){
 	}
 
 	throw "Elemento nao encontrado";
-
-
 }
+
+/*
 void ListaSessao::insereOrdenado(Sessao *s){
 No<Sessao>* temp = getCabeca(), *aux;
 	Sessao* add;
@@ -108,7 +110,67 @@ No<Sessao>* temp = getCabeca(), *aux;
 	temp->setProx(new No<Sessao>(s));
 
 
+}*/
+
+void ListaSessao::imprimirTodas()
+{
+	No<Sessao>* temp = getCabeca();
+
+	while(temp != NULL)
+	{
+		cout << endl << "Código da sessão: " << setw(6) << temp->getElemto()->getCodSessao();
+		cout << " -- Sala: " << setw(3) << temp->getElemto()->getNumSala();
+		cout << " -- Capacidade da sala: " << setw(4) << temp->getElemto()->getCapacidadeSala() << " -- Ingressos vendidos: " << setw(4) << temp->getElemto()->getNumVendido();
+
+		if(temp->getElemto()->getDisponivel())
+			cout << " -- Status: " << setw(10) << "Disponível";
+
+		else if(temp->getElemto()->getStatus())
+			cout << " -- Status: " << setw(10) << "Encerrada";
+
+		else
+			cout  << " -- Status: " << setw(10) << "Lotada";
+
+		//cout << " -- Horario de início: " << temp->getElemto()->getHorarioInicio() << " - Horario de término: " << temp->getElemto()->getHorarioFim();
+
+
+		cout << " -- Filme: " << temp->getElemto()->getFilme() << endl << endl;
+
+		temp = temp->getProx();
+	}
 }
+
+void ListaSessao::imprimirDisponiveis()
+{
+	No<Sessao>* temp = getCabeca();
+
+	while(temp != NULL)
+	{
+		if(temp->getElemto()->getDisponivel())
+		{
+			cout << endl << "Código da sessão:" << setw(6) << temp->getElemto()->getCodSessao();
+			cout << " -- Sala: " << setw(3) << temp->getElemto()->getNumSala();
+			cout << " -- Capacidade da sala: " << setw(4) << temp->getElemto()->getCapacidadeSala() << " -- Ingressos vendidos: " << setw(4) << temp->getElemto()->getNumVendido();
+
+			if(temp->getElemto()->getDisponivel())
+				cout << " -- Status: " << setw(10) << "Disponível";
+
+			else if(temp->getElemto()->getStatus())
+				cout << " -- Status: " << setw(10) << "Encerrada";
+
+			else
+				cout  << " -- Status: " << setw(10) << "Lotada";
+
+			//cout << " -- Horario de início: " << temp->getElemto()->getHorarioInicio() << " - Horario de término: " << temp->getElemto()->getHorarioFim();
+
+
+			cout << " -- Filme: " << temp->getElemto()->getFilme() << endl << endl;
+
+			temp = temp->getProx();
+		}
+	}
+}
+
 ListaSessao::ListaSessao():
 	Lista()
 {}

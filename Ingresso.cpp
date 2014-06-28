@@ -1,19 +1,25 @@
 #include "Ingresso.h"
 
-Ingresso::Ingresso(Sessao &sessao, Assento &assento)
+int Ingresso::codAtual = 1;
+
+Ingresso::Ingresso(Tipo t, double val, Sessao &sessao, char f, int a)
 {
+	tipo = t;
+	valor = val;
+	fileira = f;
+	assento = a;
+
 	Ingresso::sessao = &sessao;
-	Ingresso::assento = &assento;
+
+	codIngresso = codAtual;
+	codAtual++;
+
+	dtIngresso = Ingresso::sessao->getHorarioInicio();
 }
 
 int Ingresso::getCodIngresso()
 {
 	return codIngresso;
-}
-
-void Ingresso::setCodIngresso(int novoCod)
-{
-	codIngresso = novoCod;
 }
 
 Horario Ingresso::getDtIngresso()
@@ -24,6 +30,31 @@ Horario Ingresso::getDtIngresso()
 void Ingresso::setDtIngresso(Horario dtIngresso)
 {
 	Ingresso::dtIngresso = dtIngresso;
+}
+
+int Ingresso::getNumSala()
+{
+	return sessao->getNumSala();
+}
+
+char Ingresso::getIdFileira()
+{
+	return fileira;
+}
+
+int Ingresso::getIdAssento()
+{
+	return assento;
+}
+
+string Ingresso::getFilme()
+{
+	return sessao->getFilme();
+}
+
+Horario Ingresso::getHorario()
+{
+	return dtIngresso;
 }
 
 double Ingresso::getValor()

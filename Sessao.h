@@ -9,6 +9,8 @@ using std::string;
 class Sessao
 {
 private:
+	static int codAtual;
+
 	int codSessao;
 	Horario horarioInicio; //horario possui data também
 	Horario horarioFim;
@@ -35,10 +37,21 @@ public:
 
 	bool getDisponivel();
 
+	int getNumVendido();
 	void setNumVendido(int numVendido);
+
+	int getNumSala();
+	int getCapacidadeSala();
 
 	string getFilme();
 	void setFilme(string nomeFilme);
+
+	void imprimirSala();
+
+	bool verificaDispAssento(char fileira, int assento);
+
+	void ocuparAssento(char fileira, int assento);
+	void desocuparAssento(char fileira, int assento);
 };
 
 #endif

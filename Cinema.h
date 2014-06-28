@@ -1,11 +1,10 @@
 #ifndef CINEMA_H
 #define CINEMA_H
 
-//#include "Horario.h"
-//#include "ListaSala.h"
-//#include "ED sessoes"
-//#include "ED vendas"
-//#include "ED ingressos"
+#include "Horario.h"
+#include "ListaSala.h"
+#include "ListaSessao.h"
+#include "ListaVenda.h"
 
 #include <iostream>
 using namespace std;
@@ -13,9 +12,9 @@ using namespace std;
 class Cinema{
 
 	private:
-		//ListaSala salas;
-		//ED sessoes
-		//ED vendas
+		ListaSala listaSalas;
+		ListaSessao listaSessoes;
+		ListaVenda listaVendas;
 
 		//metodos de Interface
 		void telaInicial();
