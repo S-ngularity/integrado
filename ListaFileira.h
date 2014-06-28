@@ -16,6 +16,8 @@ public:
 	~ListaFileira();
 
 	Fileira *busca(char id);
+
+	//void renameAllAssentos()
 	
 	void removeFileira(char id);
 	int getQtdeFileiras();

@@ -399,7 +399,7 @@ void Cinema::editarSala(){
 
 		}while(opcao != 6 && opcao != 7 && opcao != 8);
 
-	}while(opcao != 6 && opcao != 7);
+	}while(opcao != 6 && opcao != 8);
 
 }
 
@@ -617,6 +617,7 @@ void Cinema::novaVenda(){
 					cin >> idAssento;
 
 					try{
+						disponivel = false;
 						disponivel = sessaoEscolhida->verificaDispAssento(idFileira, idAssento);
 					}
 
@@ -693,8 +694,14 @@ void Cinema::novaVenda(){
 			break;
 
 			case 3:
-				novaVenda->emitirIngresso();
-				listaVendas.insere(novaVenda);
+				if(novaVenda->calcularValorTotal() > 0)
+				{
+					novaVenda->emitirIngresso();
+					listaVendas.insere(novaVenda);
+				}
+
+				else
+					delete novaVenda;
 			break;
 
 			case 4:
