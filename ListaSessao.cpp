@@ -131,7 +131,9 @@ void ListaSessao::imprimirTodas()
 		else
 			cout  << " -- Status: " << setw(10) << "Lotada";
 
-		//cout << " -- Horario de início: " << temp->getElemto()->getHorarioInicio() << " - Horario de término: " << temp->getElemto()->getHorarioFim();
+		Horario temp1(temp->getElemto()->getHorarioInicio()), temp2(temp->getElemto()->getHorarioFim());
+
+		cout << " -- Horario de início: " << temp1 << " - Horario de término: " << temp2;
 
 
 		cout << " -- Filme: " << temp->getElemto()->getFilme() << endl << endl;
@@ -161,7 +163,9 @@ void ListaSessao::imprimirDisponiveis()
 			else
 				cout  << " -- Status: " << setw(10) << "Lotada";
 
-			//cout << " -- Horario de início: " << temp->getElemto()->getHorarioInicio() << " - Horario de término: " << temp->getElemto()->getHorarioFim();
+			Horario temp1(temp->getElemto()->getHorarioInicio()), temp2(temp->getElemto()->getHorarioFim());
+
+			cout << " -- Horario de início: " << temp1 << " - Horario de término: " << temp2 ;
 
 
 			cout << " -- Filme: " << temp->getElemto()->getFilme() << endl << endl;

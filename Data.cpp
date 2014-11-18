@@ -57,6 +57,8 @@ Data::Data(){
 
 ostream &operator<<(ostream &o, Data &d){
 	o << setw(2) << setfill('0') << d.dia << "/" << setw(2) << setfill('0') << d.mes << "/" << d.ano;
+
+	return o;
 }
 
 //sobrecarga do operador >>
